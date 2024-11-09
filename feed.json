@@ -1,32 +1,29 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "Saheb Ansari",
+    "title": "sahebansari.com",
     "description": "",
     "home_page_url": "https://www.sahebansari.com",
     "feed_url": "https://www.sahebansari.com/feed.json",
     "user_comment": "",
+    "icon": "https://www.sahebansari.com/media/website/creative-gradient-book-logo-template.png",
     "author": {
         "name": "Saheb Ansari"
     },
     "items": [
         {
-            "id": "https://www.sahebansari.com/force-your-web-api-to-use-tls-1-2.html",
-            "url": "https://www.sahebansari.com/force-your-web-api-to-use-tls-1-2.html",
-            "title": "Are you TLS 1.2 ready? Force your secure Web API to use TLS 1.2.",
+            "id": "https://www.sahebansari.com/secure-web-api-by-using-latest-tls-version.html",
+            "url": "https://www.sahebansari.com/secure-web-api-by-using-latest-tls-version.html",
+            "title": "Are you TLS 1.2 ready? Force your secure Web API to use TLS 1.2",
             "summary": "What is TLS? Transport Layer Security (TLS) is an industry security standard to help protect data transmitted over the internet. The newest version of TLS, 1.2 provides enhanced security and it is the current standard. .NET Framework &amp; TLS The .NET framework uses common language&hellip;",
-            "content_html": "<p><strong>What is TLS?</strong><br>Transport Layer Security (TLS) is an industry security standard to help protect data transmitted over the internet. The newest version of TLS, 1.2 provides enhanced security and it is the current standard.<br><br><strong>.NET Framework &amp; TLS </strong><br>The .NET framework uses common language runtime, used as an execution engine and class library providing reusable code. Older versions of .NET do not support the newer TLS 1.2 so it is recommended to also upgrade .NET to at least 4.5 if you are using an older version of Windows. The .NET 4.5 supports TLS 1.2 but it is not the default protocol so you need to opt-in to use the latest TLS 1.2.<br><br><strong>Forcing a secure website and web API to use TLS 1.2</strong><br>With the recent upgrade of TLS 1.0 and 1.1 to TLS 1.2. Older TLS 1.0 and TLS 1.1 being deprecated, So, you have to force your websites/services to run over TLS 1.2.<br>You will get below error due to TLS upgrade, the latest browsers by default will make a call to service (API) using TLS1.2  and API will not accept the request with new TLS version. So to fix this issue you have to force API to accept the request with new TLS 1.2 version.<br><br><i>GET - An unhandled exception occurred. System.InvalidOperationException: An error occurred while processing this request. ---&gt; Microsoft.OData.Client.DataServiceTransportException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---&gt; System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host</i><br><i><br></i><strong>To fix this issue you have to add below lines to global.asax</strong></p>\n<p> <code>protected void Application_Start()  </code><br><code>  {  </code><br><code>            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls   </code><br><code>                                    | SecurityProtocolType.Tls11   </code><br><code>                                    | SecurityProtocolType.Tls12;  </code><br><code> }  </code></p>",
-            "image": "https://www.sahebansari.com/media/posts/1/step0005.png",
+            "content_html": "<figure class=\"post__image\"><img loading=\"lazy\"  src=\"https://www.sahebansari.com/media/posts/2/step0005.png\" alt=\"TLS 1.2\" width=\"293\" height=\"173\" sizes=\"(max-width: 1920px) 100vw, 1920px\" srcset=\"https://www.sahebansari.com/media/posts/2/responsive/step0005-xs.png 640w ,https://www.sahebansari.com/media/posts/2/responsive/step0005-sm.png 768w ,https://www.sahebansari.com/media/posts/2/responsive/step0005-md.png 1024w ,https://www.sahebansari.com/media/posts/2/responsive/step0005-lg.png 1366w ,https://www.sahebansari.com/media/posts/2/responsive/step0005-xl.png 1600w ,https://www.sahebansari.com/media/posts/2/responsive/step0005-2xl.png 1920w\"></figure>\n<p><strong>What is TLS?</strong><br>Transport Layer Security (TLS) is an industry security standard to help protect data transmitted over the internet. The newest version of TLS, 1.2 provides enhanced security and it is the current standard.<br><br><strong>.NET Framework &amp; TLS </strong><br>The .NET framework uses common language runtime, used as an execution engine and class library providing reusable code. Older versions of .NET do not support the newer TLS 1.2 so it is recommended to also upgrade .NET to at least 4.5 if you are using an older version of Windows. The .NET 4.5 supports TLS 1.2 but it is not the default protocol so you need to opt-in to use the latest TLS 1.2.<br><br><strong>Forcing a secure website and web API to use TLS 1.2</strong><br>With the recent upgrade of TLS 1.0 and 1.1 to TLS 1.2. Older TLS 1.0 and TLS 1.1 being deprecated, So, you have to force your websites/services to run over TLS 1.2.<br>You will get below error due to TLS upgrade, the latest browsers by default will make a call to service (API) using TLS1.2  and API will not accept the request with new TLS version. So to fix this issue you have to force API to accept the request with new TLS 1.2 version.<br><br><i>GET - An unhandled exception occurred. System.InvalidOperationException: An error occurred while processing this request. ---&gt; Microsoft.OData.Client.DataServiceTransportException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---&gt; System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---&gt; System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host</i><br><i><br></i><strong>To fix this issue you have to add below lines to global.asax</strong></p>\n<p><code>protected void Application_Start()  </code><br><code>  {  </code><br><code>            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls   </code><br><code>                                    | SecurityProtocolType.Tls11   </code><br><code>                                    | SecurityProtocolType.Tls12;  </code><br><code> }  </code></p>",
             "author": {
                 "name": "Saheb Ansari"
             },
             "tags": [
-                   "Web API",
-                   "TLS 1.2",
-                   "SSL",
-                   "DataServiceTransportException"
+                   "Technology"
             ],
-            "date_published": "2024-05-30T22:07:49+05:30",
-            "date_modified": "2024-11-09T10:38:04+05:30"
+            "date_published": "2024-11-09T11:52:54+05:30",
+            "date_modified": "2024-11-09T11:52:54+05:30"
         }
     ]
 }
