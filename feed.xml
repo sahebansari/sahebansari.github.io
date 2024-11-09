@@ -10,26 +10,6 @@
     <id>https://www.sahebansari.com</id>
 
     <entry>
-        <title>Resume</title>
-        <author>
-            <name>Saheb Ansari</name>
-        </author>
-        <link href="https://www.sahebansari.com/resume.html"/>
-        <id>https://www.sahebansari.com/resume.html</id>
-
-        <updated>2024-05-30T22:40:38+05:30</updated>
-            <summary>
-                <![CDATA[
-                    Add my resume description
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <p>Add my resume description</p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
         <title>Are you TLS 1.2 ready? Force your secure Web API to use TLS 1.2.</title>
         <author>
             <name>Saheb Ansari</name>
