@@ -3,7 +3,7 @@
     <title>Saheb Ansari | Software Engineer</title>
     <link href="https://www.sahebansari.com/feed.xml" rel="self" />
     <link href="https://www.sahebansari.com" />
-    <updated>2024-11-15T10:07:05+05:30</updated>
+    <updated>2024-11-15T15:55:07+05:30</updated>
     <author>
         <name>Saheb Ansari</name>
     </author>
@@ -18,6 +18,7 @@
         <id>https://www.sahebansari.com/mastering-clean-code-best-practices-for-error-free-readable-and-lightweight-c-programming.html</id>
         <media:content url="https://www.sahebansari.com/media/posts/7/programming.png" medium="image" />
             <category term="Programming"/>
+            <category term="Posts"/>
             <category term="C#"/>
             <category term="Best Practices"/>
 
@@ -101,6 +102,7 @@ foreach (int number in numbers)
         <link href="https://www.sahebansari.com/blogging-your-passions-finding-creative-inspiration-in-daily-life.html"/>
         <id>https://www.sahebansari.com/blogging-your-passions-finding-creative-inspiration-in-daily-life.html</id>
         <media:content url="https://www.sahebansari.com/media/posts/5/inspire.jpeg" medium="image" />
+            <category term="Posts"/>
             <category term="Passion"/>
             <category term="Inspiration"/>
             <category term="Blogging"/>
@@ -130,6 +132,7 @@ foreach (int number in numbers)
         <id>https://www.sahebansari.com/ai-the-new-best-friend-you-never-knew-you-needed.html</id>
         <media:content url="https://www.sahebansari.com/media/posts/3/playfull-ai.png" medium="image" />
             <category term="Technology"/>
+            <category term="Posts"/>
             <category term="AI"/>
 
         <updated>2024-11-10T12:59:27+05:30</updated>
@@ -175,6 +178,7 @@ foreach (int number in numbers)
         <id>https://www.sahebansari.com/secure-web-api-by-using-latest-tls-version.html</id>
         <media:content url="https://www.sahebansari.com/media/posts/2/step0005-2.png" medium="image" />
             <category term="Technology"/>
+            <category term="Posts"/>
 
         <updated>2024-11-09T11:52:54+05:30</updated>
             <summary>
