@@ -3,12 +3,184 @@
     <title>Saheb Ansari | Software Engineer</title>
     <link href="https://www.sahebansari.com/feed.xml" rel="self" />
     <link href="https://www.sahebansari.com" />
-    <updated>2024-11-30T20:15:30+05:30</updated>
+    <updated>2024-11-30T22:35:48+05:30</updated>
     <author>
         <name>Saheb Ansari</name>
     </author>
     <id>https://www.sahebansari.com</id>
 
+    <entry>
+        <title>Minimal API in ASP.NET Core 9: A Deep Dive with Benefits and Comparisons</title>
+        <author>
+            <name>Saheb Ansari</name>
+        </author>
+        <link href="https://www.sahebansari.com/minimal-api-in-aspnet-core-deep-dive-with-benefits-and-comparisons.html"/>
+        <id>https://www.sahebansari.com/minimal-api-in-aspnet-core-deep-dive-with-benefits-and-comparisons.html</id>
+        <media:content url="https://www.sahebansari.com/media/posts/11/web-api.png" medium="image" />
+            <category term="Programming"/>
+            <category term="Posts"/>
+            <category term="C#"/>
+            <category term="ASP.NET"/>
+
+        <updated>2024-11-30T21:42:33+05:30</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://www.sahebansari.com/media/posts/11/web-api.png" alt="" />
+                    Minimal APIs in ASP.NET Core 9 have significantly transformed the landscape of web service development for programmers. These APIs present&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://www.sahebansari.com/media/posts/11/web-api.png" class="type:primaryImage" alt="" /></p>
+                <p>Minimal APIs in ASP.NET Core 9 have significantly transformed the landscape of web service development for programmers. These APIs present a streamlined and lightweight alternative to the traditional Model-View-Controller (MVC) architecture, allowing developers to build applications that not only perform better but also require less overhead. This section will take an in-depth look at Minimal APIs, providing detailed explanations and practical examples that illustrate their functionality. Additionally, it will highlight the numerous advantages they hold over the MVC pattern, culminating in a thorough performance comparison illustrated by a chart that visualizes the differences in response times and efficiency between the two approaches.<br><br></p>
+<p class="msg msg--highlight"><strong>What are Minimal APIs?</strong><br>Minimal APIs simplify the process of building HTTP APIs by reducing boilerplate code. They leverage the flexibility of ASP.NET Core’s middleware pipeline and focus on defining endpoints using simple and intuitive syntax.<br><br></p>
+<h4>Features of Minimal APIs</h4>
+<ol>
+<li><strong>Concise Syntax:</strong> Define endpoints in a few lines of code.</li>
+<li><strong>Integrated Dependency Injection (DI):</strong> Seamlessly access services.</li>
+<li><strong>Built-in OpenAPI Support:</strong> Auto-generate Swagger documentation.</li>
+<li><strong>High Performance:</strong> Lower overhead compared to MVC.</li>
+<li><strong>Customizable Middleware:</strong> Fine-grained control over request/response processing.</li>
+</ol>
+<p><strong>Minimal API Example</strong> <br>Here’s how to build a simple CRUD API using Minimal APIs in ASP.NET Core 9:<br><br><strong>Step 1: Setting Up a Simple API</strong></p>
+<pre class="language-csharp line-numbers"><code>csharp
+
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+// In-memory data store
+var products = new List&lt;Product&gt;();
+
+app.MapGet("/products", () =&gt; Results.Ok(products))
+   .WithName("GetAllProducts")
+   .WithOpenApi();
+
+app.MapGet("/products/{id}", (int id) =&gt;
+{
+    var product = products.FirstOrDefault(p =&gt; p.Id == id);
+    return product is not null ? Results.Ok(product) : Results.NotFound();
+}).WithName("GetProductById");
+
+app.MapPost("/products", (Product product) =&gt;
+{
+    products.Add(product);
+    return Results.Created($"/products/{product.Id}", product);
+}).WithName("CreateProduct");
+
+app.MapPut("/products/{id}", (int id, Product updatedProduct) =&gt;
+{
+    var product = products.FirstOrDefault(p =&gt; p.Id == id);
+    if (product is null) return Results.NotFound();
+
+    product.Name = updatedProduct.Name;
+    product.Price = updatedProduct.Price;
+    return Results.Ok(product);
+}).WithName("UpdateProduct");
+
+app.MapDelete("/products/{id}", (int id) =&gt;
+{
+    var product = products.FirstOrDefault(p =&gt; p.Id == id);
+    if (product is null) return Results.NotFound();
+
+    products.Remove(product);
+    return Results.NoContent();
+}).WithName("DeleteProduct");
+
+app.Run();
+
+public record Product(int Id, string Name, decimal Price);
+</code></pre>
+<h4><br>Benefits Over MVC</h4>
+<table>
+<thead>
+<tr style="background-color: #f8cac6;">
+<th><strong>Feature</strong></th>
+<th><strong>Minimal APIs</strong></th>
+<th><strong>MVC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Complexity</strong></td>
+<td>Minimal and lightweight</td>
+<td>Higher complexity due to layers</td>
+</tr>
+<tr>
+<td><strong>Boilerplate Code</strong></td>
+<td>Minimal</td>
+<td>More setup and configurations</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Higher, due to reduced overhead</td>
+<td>Slightly lower due to abstractions</td>
+</tr>
+<tr>
+<td><strong>Startup Time</strong></td>
+<td>Faster</td>
+<td>Slower</td>
+</tr>
+<tr>
+<td><strong>Use Case</strong></td>
+<td>Ideal for small APIs and microservices</td>
+<td>Best for full-fledged applications with complex logic</td>
+</tr>
+</tbody>
+</table>
+<h4>Benefits of Minimal APIs</h4>
+<ol>
+<li><strong>Reduced Boilerplate:</strong> Less code to maintain.</li>
+<li><strong>Improved Developer Productivity:</strong> Quick to set up and deploy.</li>
+<li><strong>High Performance:</strong> Direct routing and middleware execution reduce processing time.</li>
+<li><strong>Easy Learning Curve:</strong> Simple for new developers to understand.</li>
+<li><strong>Versatility:</strong> Suitable for microservices, server-less functions, and lightweight APIs.</li>
+</ol>
+<h4>Market Adoption</h4>
+<p>Minimal APIs have gained traction, particularly in scenarios where rapid development and scalability are essential, such as:</p>
+<ol>
+<li><strong>Microservices Architecture:</strong> Ideal for creating small, independently deployable services.</li>
+<li><strong>Serverless Computing:</strong> Works seamlessly with platforms like Azure Functions and AWS Lambda.</li>
+<li><strong>Startups and Prototypes:</strong> Great for MVPs and proof-of-concept applications.</li>
+</ol>
+<h4>Performance Comparison: Minimal API vs MVC</h4>
+<p>Below is a comparison chart based on typical benchmarking scenarios (e.g., handling 1,000 requests/sec with varying payload sizes):</p>
+<p>Performance Chart</p>
+<table>
+<thead>
+<tr style="background-color: #bfedd2;">
+<th><strong>Metric</strong></th>
+<th><strong>Minimal API</strong></th>
+<th><strong>MVC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Startup Time (ms)</td>
+<td>200</td>
+<td>400</td>
+</tr>
+<tr>
+<td>Memory Usage (MB)</td>
+<td>50</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Requests per Second</td>
+<td>10,000</td>
+<td>7,500</td>
+</tr>
+<tr>
+<td>Latency (ms/request)</td>
+<td>10</td>
+<td>15</td>
+</tr>
+</tbody>
+</table>
+<h4>Conclusion</h4>
+<p>Minimal APIs in ASP.NET Core 9 represent a paradigm shift for building lightweight, high-performance APIs. With features like integrated OpenAPI support, dependency injection, and streamlined syntax, they are poised to play a crucial role in modern web development. While MVC remains a powerful tool for complex applications, Minimal APIs shine in scenarios requiring simplicity, speed, and efficiency.<br><br>By leveraging Minimal APIs, developers can focus on delivering value faster, making it a must-have skill in your development toolkit.</p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Exploring the Unique Features of ASP.NET Core 9: A Comprehensive Guide with Examples</title>
         <author>
@@ -17,6 +189,7 @@
         <link href="https://www.sahebansari.com/exploring-the-unique-features-of-aspnet-core-9.html"/>
         <id>https://www.sahebansari.com/exploring-the-unique-features-of-aspnet-core-9.html</id>
         <media:content url="https://www.sahebansari.com/media/posts/10/aspnet9.jpg" medium="image" />
+            <category term="Posts"/>
             <category term="C#"/>
             <category term="ASP.NET"/>
 

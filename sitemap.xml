@@ -30,7 +30,7 @@
 </url>
 <url>
 <loc>https://www.sahebansari.com/exploring-the-unique-features-of-aspnet-core-9.html</loc>
-<lastmod>2024-11-30T20:15:30+05:30</lastmod>
+<lastmod>2024-11-30T21:42:53+05:30</lastmod>
 <image:image>
 <image:loc>https://www.sahebansari.com/media/posts/10/aspnet9.jpg</image:loc>
 <image:title><![CDATA[]]></image:title>
@@ -41,6 +41,14 @@
 <lastmod>2024-11-17T22:37:24+05:30</lastmod>
 <image:image>
 <image:loc>https://www.sahebansari.com/media/posts/7/programming.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+<url>
+<loc>https://www.sahebansari.com/minimal-api-in-aspnet-core-deep-dive-with-benefits-and-comparisons.html</loc>
+<lastmod>2024-11-30T22:35:48+05:30</lastmod>
+<image:image>
+<image:loc>https://www.sahebansari.com/media/posts/11/web-api.png</image:loc>
 <image:title><![CDATA[]]></image:title>
 </image:image>
 </url>
