@@ -3,7 +3,7 @@
     <title>Saheb Ansari | Software Engineer</title>
     <link href="https://www.sahebansari.com/feed.xml" rel="self" />
     <link href="https://www.sahebansari.com" />
-    <updated>2024-12-21T19:36:13+05:30</updated>
+    <updated>2024-12-21T23:20:05+05:30</updated>
     <author>
         <name>Saheb Ansari</name>
     </author>
@@ -16,7 +16,7 @@
         </author>
         <link href="https://www.sahebansari.com/openapi-support-in-aspnet-core-9-and-using-swagger-ui-for-api-documentation.html"/>
         <id>https://www.sahebansari.com/openapi-support-in-aspnet-core-9-and-using-swagger-ui-for-api-documentation.html</id>
-        <media:content url="https://www.sahebansari.com/media/posts/14/documentation.png" medium="image" />
+        <media:content url="https://www.sahebansari.com/media/posts/14/documentation-2.png" medium="image" />
             <category term="SwaggerUI"/>
             <category term="Posts"/>
             <category term="OpenAPI"/>
@@ -26,13 +26,13 @@
         <updated>2024-12-21T19:33:31+05:30</updated>
             <summary>
                 <![CDATA[
-                        <img src="https://www.sahebansari.com/media/posts/14/documentation.png" alt="" />
+                        <img src="https://www.sahebansari.com/media/posts/14/documentation-2.png" alt="" />
                     Introduction Hey there, fellow developers! If you're diving into the world of web development, you know how important it is&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://www.sahebansari.com/media/posts/14/documentation.png" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://www.sahebansari.com/media/posts/14/documentation-2.png" class="type:primaryImage" alt="" /></p>
                 <h2>Introduction</h2>
 <p>Hey there, fellow developers! If you're diving into the world of web development, you know how important it is to have well-documented APIs. ASP.NET Core 9 has got your back with enhanced support for OpenAPI, making it super easy to document your Web APIs. In this post, we'll walk you through how to leverage OpenAPI in ASP.NET Core 9 and use Swagger UI to create awesome API documentation.</p>
 <h2>What is OpenAPI?</h2>
@@ -46,16 +46,25 @@
 <p>Next, open the <code>Program.cs</code> file and configure OpenAPI in the <code>ConfigureServices</code> and <code>Configure</code> methods:</p>
 <pre class="language-csharp line-numbers"><code>var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+// builder.Services.AddEndpointsApiExplorer();
+// builder.Services.AddSwaggerGen();
+// The above two lines are not needed with ASP.Net Core 9 
+
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.MapOpenApi();
+    // app.UseSwagger(); This is also not needed now. Instead use function MapOpenApi()
+    app.MapOpenApi("OpenApi/v1/OpenApiDoc.json");
+    app.UseSwaggerUI(c =&gt;
+    {
+     c.SwaggerEndpoint("/OpenApi/v1/OpenApiDoc.json", "My API Documentation V1");
+    }
+  
 }
 
 app.UseHttpsRedirection();
@@ -75,8 +84,8 @@ app.Run();
 <p>Want to make Swagger UI your own? You can customize its appearance and behavior by tweaking the <code>SwaggerUIOptions</code> in the <code>Configure</code> method. For example, you can change the theme, add custom CSS, or enable deep linking:</p>
 <pre class="language-csharp line-numbers"><code>app.UseSwaggerUI(c =&gt;
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-    c.RoutePrefix = string.Empty;
+    c.SwaggerEndpoint("/OpenApi/v1/OpenApiDoc.json", "My API Documentation V1");
+    c.RoutePrefix = "OpenApiDoc";
     c.DocumentTitle = "My Custom API Documentation";
     c.InjectStylesheet("/swagger-ui/custom.css");
     c.EnableDeepLinking();
@@ -91,6 +100,34 @@ app.Run();
     .WithDescription("Returns a greeting message.");
 </code></pre>
 <p>These descriptions help users understand the purpose of each endpoint and how to use them effectively.</p>
+<h2>Launch Settings for Swagger UI</h2>
+<p>To automatically open Swagger UI when you run your project, you can configure the launch settings in the <code>launchSettings.json</code> file. Here's how you can do it:</p>
+<ol start="1">
+<li>
+<p>Open the <code>Properties</code> folder in your project.</p>
+</li>
+<li>
+<p>Open the <code>launchSettings.json</code> file.</p>
+</li>
+<li>
+<p>Add the following configuration under the <code>profiles</code> section:</p>
+</li>
+</ol>
+<pre class="language-json line-numbers"><code>{
+  "profiles": {
+    "MyApiProject": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "OpenApiDoc",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+</code></pre>
 <h2>Conclusion</h2>
 <p>OpenAPI support in ASP.NET Core 9, combined with Swagger UI, provides a powerful and user-friendly way to document your Web APIs. By following the steps outlined in this blog post, you can create comprehensive and interactive API documentation that will benefit both developers and users.</p>
 <p>Happy coding!😊</p>
