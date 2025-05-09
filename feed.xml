@@ -3,7 +3,7 @@
     <title>Saheb Ansari | Software Engineer | Tech Lead</title>
     <link href="https://www.sahebansari.com/feed.xml" rel="self" />
     <link href="https://www.sahebansari.com" />
-    <updated>2024-12-21T23:20:05+05:30</updated>
+    <updated>2025-05-09T21:29:18+05:30</updated>
     <author>
         <name>Saheb Ansari</name>
     </author>
@@ -143,6 +143,7 @@ app.Run();
         <id>https://www.sahebansari.com/implementing-key-based-and-basic-authentication-in-the-same-project.html</id>
         <media:content url="https://www.sahebansari.com/media/posts/13/auth.png" medium="image" />
             <category term="Programming"/>
+            <category term="Posts"/>
             <category term="C#"/>
             <category term="ASP.NET"/>
 
