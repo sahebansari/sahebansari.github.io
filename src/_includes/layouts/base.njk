@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% set siteUrl = "https://sahebansari.com" %}
+    {% set siteName = "Saheb Ansari" %}
+    {% set metaDescription = description or excerpt or 'Welcome to my blog-a space where knowledge meets curiosity!' %}
+    {% set socialImage = ogImage or image or '/assets/images/logo.svg' %}
+    {% set socialImageUrl = socialImage | absoluteUrl %}
+    {% set pageTitle = title if pageType == 'home' else title + ' - ' + siteName %}
+    {% set schemaType = 'BlogPosting' if pageType == 'post' or layout == 'post' else 'WebPage' %}
+    <meta charset="UTF-8">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ metaDescription }}">
+    <meta name="author" content="{{ author or siteName }}">
+    <link rel="canonical" href="{{ siteUrl }}{{ page.url }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="{{ siteName }}">
+    <meta property="og:type" content="{{ ogType or ('article' if schemaType == 'BlogPosting' else 'website') }}">
+    <meta property="og:url" content="{{ siteUrl }}{{ page.url }}">
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ metaDescription }}">
+    <meta property="og:image" content="{{ socialImageUrl }}">
+    {% if date %}<meta property="article:published_time" content="{{ date | htmlDateString }}">{% endif %}
+    {% if category %}<meta property="article:section" content="{{ category }}">{% endif %}
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ siteUrl }}{{ page.url }}">
+    <meta property="twitter:title" content="{{ pageTitle }}">
+    <meta property="twitter:description" content="{{ metaDescription }}">
+    <meta property="twitter:image" content="{{ socialImageUrl }}">
+    <title>{{ pageTitle }}</title>
+    <script type="application/ld+json">
+        {{
+            {
+                "@context": "https://schema.org",
+                "@type": schemaType,
+                "headline": title,
+                "description": metaDescription,
+                "url": siteUrl + page.url,
+                "image": socialImageUrl,
+                "author": {
+                    "@type": "Person",
+                    "name": author or siteName,
+                    "url": siteUrl + "/about/"
+                },
+                "publisher": {
+                    "@type": "Person",
+                    "name": siteName,
+                    "url": siteUrl
+                },
+                "datePublished": date | htmlDateString if date else null
+            } | json | safe
+        }}
+    </script>
+
+    <!-- Fluent 2 Design System -->
+    <link rel="stylesheet" href="/assets/css/fluent2-tokens.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body class="fluent-body" data-theme="light" style="margin: 0; padding: 0;">
+    <!-- Navigation -->
+    <nav class="fluent-nav">
+        <div class="fluent-container">
+            <div class="fluent-nav-content">
+                <a href="/" class="fluent-nav-brand" style="display: flex; align-items: center; gap: var(--fluent-spacing-s); text-decoration: none; color: inherit;">
+                    <img src="/assets/images/logo.svg" alt="Saheb Ansari Logo" style="width: 75px; height: 75px; border-radius: 50%; background-color:#eee;">
+                    <span style="font-weight: var(--fluent-font-weight-semibold);">Saheb Ansari</span>
+                </a>
+
+                <div class="fluent-nav-items">
+                    <a href="/" class="fluent-nav-link {% if page.url == '/' %}fluent-nav-link-active{% endif %}">Home</a>
+                    <a href="/blog/" class="fluent-nav-link {% if page.url == '/blog/' %}fluent-nav-link-active{% endif %}">Blog</a>
+                    <a href="/about/" class="fluent-nav-link {% if page.url == '/about/' %}fluent-nav-link-active{% endif %}">About</a>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="fluent-theme-toggle" aria-label="Toggle theme">
+                        <svg id="sun-icon" class="fluent-icon fluent-icon-hidden" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                        </svg>
+                        <svg id="moon-icon" class="fluent-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    {{ content | safe }}
+
+    <!-- Footer -->
+    <footer class="fluent-footer">
+        <div class="fluent-container">
+            <div class="fluent-footer-grid">
+                <div style="padding-top: var(--fluent-spacing-m);">
+                     <img src="/assets/images/logo.svg" alt="Saheb Ansari Logo"
+                     style="width: 100px; height: 100px; border: 2px solid #ccc; border-radius: 50%; background-color:#ccc;">
+                    <h3 class="fluent-footer-title">Saheb Ansari</h3>
+                    <p class="fluent-footer-text">Software Engineer | Architect | Blogger</p>
+                </div>
+                <div>
+                    <h4 class="fluent-footer-heading">Navigation</h4>
+                    <ul class="fluent-footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <li><a href="/copyright/">Copyright</a></li>
+                        <li><a href="/privacy/">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="fluent-footer-heading">Recent Posts</h4>
+                    <ul class="fluent-footer-links">
+                        {% set recentPosts = collections.posts.slice(0, 4) %}
+                        {% for post in recentPosts %}
+                        <li><a href="{{ post.url }}" title="{{ post.data.title }}" class="fluent-recent-post-link">{{ post.data.title | truncate(40) }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="fluent-footer-heading">Social</h4>
+                    <ul class="fluent-footer-links">
+                        <li><a href="https://twitter.com/sahebansari">Twitter</a></li>
+                        <li><a href="https://github.com/sahebansari">GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/sahebansari">LinkedIn</a></li>
+                        <li><a href="https://facebook.com/sahebansari">Facebook</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="fluent-footer-heading">Contact</h4>
+                    <ul class="fluent-footer-links">
+                        <li><a href="mailto:me@sahebansari.com">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fluent-footer-divider"></div>
+            <div class="fluent-footer-bottom">
+                <p><strong>&copy; 2026 Saheb Ansari. All rights reserved.</strong></p>
+                <p>
+                    <strong>Disclaimer:</strong> The views expressed on this blog are my own and do not necessarily
+                    reflect the views of my employer or any affiliated organizations.
+                    Any logos or company names mentioned here are used solely for reference
+                    purposes and may be the trademarks or property of their respective owners.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
+    {% if highlightCode %}
+    <script>
+        // Highlight code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            hljs.highlightElement(block);
+        });
+    </script>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,106 @@
+---
+layout: base
+highlightCode: true
+---
+
+<!-- Article Header -->
+<header style="background: linear-gradient(135deg, rgba(0, 120, 212, 0.05), rgba(98, 0, 234, 0.05)); padding: var(--fluent-spacing-xl) var(--fluent-spacing-l);">
+    <div class="fluent-container">
+        <div style="margin-bottom: var(--fluent-spacing-m);">
+            <span class="fluent-post-tag">{{ category or 'Article' }}</span>
+        </div>
+        
+        <h1 class="fluent-hero-title">{{ title }}</h1>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: var(--fluent-spacing-l); color: var(--fluent-color-text-secondary); margin-top: var(--fluent-spacing-l);">
+            <div style="display: flex; align-items: center; gap: var(--fluent-spacing-s);">
+                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #0078d4, #6200ea); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">{{ author | first }}</div>
+                <div>
+                    <p style="font-weight: var(--fluent-font-weight-semibold); margin: 0;">{{ author }}</p>
+                    <p style="font-size: var(--fluent-font-size-small); margin: 0;">{{ authorRole or 'Web Developer' }}</p>
+                </div>
+            </div>
+            <span style="display: none; @media (min-width: 768px) { display: block; }">•</span>
+            <time datetime="{{ date | htmlDateString }}" style="font-size: var(--fluent-font-size-small); display: flex; align-items: center; gap: var(--fluent-spacing-xs);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                {{ date | dateFilter }}
+            </time>
+            <span style="display: none; @media (min-width: 768px) { display: block; }">•</span>
+            <span style="font-size: var(--fluent-font-size-small); display: flex; align-items: center; gap: var(--fluent-spacing-xs);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                {{ readingTime or '5 min' }}
+            </span>
+        </div>
+    </div>
+</header>
+
+<!-- Featured Image -->
+{% if image %}
+<div style="height: 400px; background-color: var(--fluent-color-background-secondary); overflow: hidden;">
+    <img src="{{ image }}" 
+         alt="{{ title }}" 
+         style="width: 100%; height: 100%; object-fit: cover;">
+</div>
+{% endif %}
+
+<!-- Main Content -->
+<main class="fluent-posts-section">
+    <div class="fluent-container">
+        <article class="article-content">
+            {{ content | safe }}
+        </article>
+
+        <!-- Share Buttons -->
+        <div style="margin-top: var(--fluent-spacing-xxl); padding-top: var(--fluent-spacing-l); border-top: 1px solid var(--fluent-color-stroke-primary);">
+            <h3 style="font-size: var(--fluent-font-size-large); font-weight: var(--fluent-font-weight-semibold); margin-bottom: var(--fluent-spacing-m);">Share this post</h3>
+            <div style="display: flex; gap: var(--fluent-spacing-xs); flex-wrap: wrap;">
+                <a href="https://twitter.com/intent/tweet?url=https://sahebansari.com{{ page.url }}" 
+                   class="fluent-button fluent-button-primary"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: var(--fluent-font-size-small);">
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+                       <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75-2.63 7-7 7-11.38a4.86 4.86 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                   </svg>
+                   Twitter
+                </a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sahebansari.com{{ page.url }}" 
+                   class="fluent-button fluent-button-primary"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: var(--fluent-font-size-small);">
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+                       <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                       <circle cx="4" cy="4" r="2"/>
+                   </svg>
+                   LinkedIn
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://sahebansari.com{{ page.url }}" 
+                   class="fluent-button fluent-button-primary"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: var(--fluent-font-size-small);">
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+                       <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 011-1h3z"/>
+                   </svg>
+                   Facebook
+                </a>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div style="margin-top: var(--fluent-spacing-l);">
+            <a href="/blog/" style="color: var(--fluent-color-brand-primary); text-decoration: none; font-weight: var(--fluent-font-weight-semibold);">
+                ← Back to all posts
+            </a>
+        </div>
+    </div>
+</main>

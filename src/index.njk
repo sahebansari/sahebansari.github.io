@@ -1,0 +1,40 @@
+---
+layout: base
+title: "Saheb Ansari - Modern Thoughts on Web & Tech"
+pageType: home
+description: "A modern personal blog featuring thoughts on web development, technology, and creative ideas."
+---
+
+<!-- Hero Section -->
+<section class="fluent-hero">
+    <div class="fluent-container">
+        <div class="fluent-hero-content">
+            <h1 class="fluent-hero-title">Welcome to my blog-a space where knowledge meets curiosity!</h1>
+            <p class="fluent-hero-subtitle">
+                Here, I share my thoughts on web development, technology trends, and creative ideas. Whether you're a seasoned developer or just starting out, there's something here for everyone. Dive in and explore the latest insights, tutorials, and musings on all things web and tech. Let's learn and grow together!
+            </p>
+            <div class="fluent-hero-actions">
+                <a href="/blog/" class="fluent-button fluent-button-primary">Read Posts</a>
+                <a href="/about/" class="fluent-button fluent-button-secondary">Learn About Me</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Posts Section -->
+<section id="posts" class="fluent-posts-section">
+    <div class="fluent-container">
+        <h2 class="fluent-section-title">Latest Posts</h2>
+
+        <div class="fluent-posts-grid">
+            {%- for post in collections.posts.slice(0, 4) -%}
+            {% set postCardClass = "" %}
+            {% include "post-card.njk" %}
+            {%- endfor -%}
+        </div>
+
+        <div class="fluent-section-actions">
+            <a href="/blog/" class="fluent-button fluent-button-primary">View all posts</a>
+        </div>
+    </div>
+</section>

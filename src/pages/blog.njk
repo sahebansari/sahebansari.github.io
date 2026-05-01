@@ -1,0 +1,100 @@
+---
+layout: base
+title: "Blog"
+pageType: blog
+description: "Browse the latest blog posts from Saheb Ansari on web development, architecture, and technology."
+permalink: "/blog/"
+---
+
+<div class="blog-scroll-progress" aria-hidden="true">
+    <div class="blog-scroll-progress-bar" id="blog-scroll-progress-bar"></div>
+</div>
+
+<header class="blog-page-header">
+    <div class="fluent-container">
+        <h1 class="page-title">Blog</h1>
+        <p class="page-description">Fresh notes on web development, software architecture, and practical engineering lessons.</p>
+    </div>
+</header>
+
+<main class="fluent-posts-section blog-posts-page">
+    <div class="fluent-container">
+        <div class="blog-pagination-status" aria-live="polite">
+            <span id="blog-visible-count">4</span> of {{ collections.posts.length }} posts shown
+            <div class="blog-pagination-track" aria-hidden="true">
+                <div class="blog-pagination-bar" id="blog-pagination-bar" style="width: {{ 4 / collections.posts.length * 100 }}%;"></div>
+            </div>
+        </div>
+
+        <div class="fluent-posts-grid" id="blog-posts-grid" data-page-size="4">
+            {%- for post in collections.posts -%}
+            {% set postCardClass = "blog-post-card" + (" is-hidden" if loop.index0 >= 4 else "") %}
+            {% include "post-card.njk" %}
+            {%- endfor -%}
+        </div>
+
+        <div class="blog-load-status" id="blog-load-status">Scroll to load more posts</div>
+        <div id="blog-load-sentinel" class="blog-load-sentinel" aria-hidden="true"></div>
+    </div>
+</main>
+
+<script>
+    (function () {
+        const posts = Array.from(document.querySelectorAll('.blog-post-card'));
+        const grid = document.getElementById('blog-posts-grid');
+        const pageSize = Number(grid?.dataset.pageSize || 4);
+        const visibleCount = document.getElementById('blog-visible-count');
+        const paginationBar = document.getElementById('blog-pagination-bar');
+        const scrollBar = document.getElementById('blog-scroll-progress-bar');
+        const loadStatus = document.getElementById('blog-load-status');
+        const sentinel = document.getElementById('blog-load-sentinel');
+        let shown = Math.min(pageSize, posts.length);
+        let hasScrolled = false;
+
+        function updateProgress() {
+            const percentage = posts.length ? (shown / posts.length) * 100 : 100;
+            if (visibleCount) visibleCount.textContent = shown;
+            if (paginationBar) paginationBar.style.width = percentage + '%';
+            if (loadStatus) {
+                loadStatus.textContent = shown >= posts.length ? 'All posts loaded' : 'Scroll to load more posts';
+            }
+        }
+
+        function revealNextPosts() {
+            if (shown >= posts.length) return;
+            const nextShown = Math.min(shown + pageSize, posts.length);
+            posts.slice(shown, nextShown).forEach((post) => {
+                post.classList.remove('is-hidden');
+                post.classList.add('fade-in');
+            });
+            shown = nextShown;
+            updateProgress();
+        }
+
+        function updateScrollProgress() {
+            if (!scrollBar) return;
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 100;
+            scrollBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+        }
+
+        updateProgress();
+        updateScrollProgress();
+        window.addEventListener('scroll', () => {
+            hasScrolled = true;
+            updateScrollProgress();
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+                revealNextPosts();
+            }
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window && sentinel) {
+            const observer = new IntersectionObserver((entries) => {
+                if (hasScrolled && entries.some((entry) => entry.isIntersecting)) {
+                    revealNextPosts();
+                }
+            }, { rootMargin: '300px 0px' });
+            observer.observe(sentinel);
+        }
+    })();
+</script>

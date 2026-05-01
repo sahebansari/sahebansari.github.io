@@ -1,0 +1,23 @@
+{
+  "name": "sahebansari-blog",
+  "version": "1.0.0",
+  "description": "Modern personal blog with Fluent 2 design system and Eleventy",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\"",
+    "build": "npm run clean && eleventy",
+    "watch": "eleventy --watch",
+    "debug": "DEBUG=Eleventy* eleventy"
+  },
+  "keywords": [
+    "blog",
+    "eleventy",
+    "fluent2"
+  ],
+  "author": "Saheb Ansari",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5"
+  }
+}
