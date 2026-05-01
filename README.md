@@ -41,7 +41,7 @@ A lightweight, fast, and modern personal blogging website built with **HTML5**, 
 ### 1. Clone or Download the Repository
 
 ```bash
-git clone https://github.com/yourusername/sahebansari.com.git
+git clone https://github.com/sahebansari/sahebansari.com.git
 cd sahebansari.com
 ```
 
