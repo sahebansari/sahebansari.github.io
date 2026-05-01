@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Copy assets to output
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/CNAME");
   
   // Add Nunjucks filters
   eleventyConfig.addNunjucksFilter("dateFilter", (date) => {
