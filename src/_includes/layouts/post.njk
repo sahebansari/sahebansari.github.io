@@ -4,103 +4,116 @@ highlightCode: true
 ---
 
 <!-- Article Header -->
-<header style="background: linear-gradient(135deg, rgba(0, 120, 212, 0.05), rgba(98, 0, 234, 0.05)); padding: var(--fluent-spacing-xl) var(--fluent-spacing-l);">
-    <div class="fluent-container">
-        <div style="margin-bottom: var(--fluent-spacing-m);">
-            <span class="fluent-post-tag">{{ category or 'Article' }}</span>
-        </div>
-        
-        <h1 class="fluent-hero-title">{{ title }}</h1>
-        
-        <div style="display: flex; flex-wrap: wrap; gap: var(--fluent-spacing-l); color: var(--fluent-color-text-secondary); margin-top: var(--fluent-spacing-l);">
-            <div style="display: flex; align-items: center; gap: var(--fluent-spacing-s);">
-                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #0078d4, #6200ea); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">{{ author | first }}</div>
-                <div>
-                    <p style="font-weight: var(--fluent-font-weight-semibold); margin: 0;">{{ author }}</p>
-                    <p style="font-size: var(--fluent-font-size-small); margin: 0;">{{ authorRole or 'Web Developer' }}</p>
-                </div>
+<header class="article-header" id="main-content">
+    <div class="container">
+        <div class="article-header-content">
+            <div class="article-category">
+                <span class="badge badge--primary">{{ category or 'Article' }}</span>
             </div>
-            <span style="display: none; @media (min-width: 768px) { display: block; }">•</span>
-            <time datetime="{{ date | htmlDateString }}" style="font-size: var(--fluent-font-size-small); display: flex; align-items: center; gap: var(--fluent-spacing-xs);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                {{ date | dateFilter }}
-            </time>
-            <span style="display: none; @media (min-width: 768px) { display: block; }">•</span>
-            <span style="font-size: var(--fluent-font-size-small); display: flex; align-items: center; gap: var(--fluent-spacing-xs);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                {{ readingTime or '5 min' }}
-            </span>
+
+            <h1 class="article-title">{{ title }}</h1>
+
+            <div class="article-meta">
+                <div class="article-author-info">
+                    <div class="article-avatar" aria-hidden="true">
+                        {{ author | first | upper }}
+                    </div>
+                    <div>
+                        <p class="article-author-name">{{ author or 'Saheb Ansari' }}</p>
+                        {% if authorRole %}
+                        <p class="article-author-role">{{ authorRole }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <span class="article-divider">•</span>
+                <time datetime="{{ date | htmlDateString }}" class="flex items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    {{ date | dateFilter }}
+                </time>
+                <span class="article-divider">•</span>
+                <span class="flex items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    {{ readingTime or '5 min read' }}
+                </span>
+            </div>
         </div>
     </div>
 </header>
 
 <!-- Featured Image -->
 {% if image %}
-<div style="height: 400px; background-color: var(--fluent-color-background-secondary); overflow: hidden;">
-    <img src="{{ image }}" 
-         alt="{{ title }}" 
-         style="width: 100%; height: 100%; object-fit: cover;">
+<div class="article-featured-image-wrapper">
+    <img src="{{ image }}"
+         alt="{{ title }}"
+         class="article-featured-image"
+         loading="eager">
 </div>
 {% endif %}
 
 <!-- Main Content -->
-<main class="fluent-posts-section">
-    <div class="fluent-container">
-        <article class="article-content">
-            {{ content | safe }}
-        </article>
+<main>
+    <div class="article-content">
+        {{ content | safe }}
+    </div>
 
-        <!-- Share Buttons -->
-        <div style="margin-top: var(--fluent-spacing-xxl); padding-top: var(--fluent-spacing-l); border-top: 1px solid var(--fluent-color-stroke-primary);">
-            <h3 style="font-size: var(--fluent-font-size-large); font-weight: var(--fluent-font-weight-semibold); margin-bottom: var(--fluent-spacing-m);">Share this post</h3>
-            <div style="display: flex; gap: var(--fluent-spacing-xs); flex-wrap: wrap;">
-                <a href="https://twitter.com/intent/tweet?url=https://sahebansari.com{{ page.url }}" 
-                   class="fluent-button fluent-button-primary"
+    <!-- Share Section -->
+    <div class="share-section">
+        <div class="container">
+            <h3 class="share-title">Share this post</h3>
+            <div class="share-buttons">
+                <a href="https://twitter.com/intent/tweet?url=https://sahebansari.com{{ page.url }}"
+                   class="share-btn share-btn--twitter"
                    target="_blank"
                    rel="noopener noreferrer"
-                   style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: var(--fluent-font-size-small);">
-                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
-                       <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75-2.63 7-7 7-11.38a4.86 4.86 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
-                   </svg>
-                   Twitter
+                   aria-label="Share on Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2 9.19 9.19 0 01-2-7v7a3.65 3.65 0 001.88 3.06c.39-.14.75-.24 1.15-.31A3.65 3.65 0 008 20a4.48 4.48 0 01-2-.9v-.86a4.48 4.48 0 00 4.06 4.4 4.51 4.51 0 01-2 .07 4.48 4.48 0 004.48 4.48A4.49 4.49 0 0120 13.72a4.16 4.16 0 01-1.92.04 4.48 4.48 0 00 4.19 3.12A9 9 0 010 16c0 2.24.6 4.39 1.69 6.23A9 9 0 0023 3z"/>
+                    </svg>
+                    Twitter
                 </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sahebansari.com{{ page.url }}" 
-                   class="fluent-button fluent-button-primary"
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sahebansari.com{{ page.url }}"
+                   class="share-btn share-btn--linkedin"
                    target="_blank"
                    rel="noopener noreferrer"
-                   style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: var(--fluent-font-size-small);">
-                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
-                       <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-                       <circle cx="4" cy="4" r="2"/>
-                   </svg>
-                   LinkedIn
+                   aria-label="Share on LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    LinkedIn
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://sahebansari.com{{ page.url }}" 
-                   class="fluent-button fluent-button-primary"
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://sahebansari.com{{ page.url }}"
+                   class="share-btn share-btn--facebook"
                    target="_blank"
                    rel="noopener noreferrer"
-                   style="display: flex; align-items: center; gap: 6px; padding: 8px 12px; font-size: var(--fluent-font-size-small);">
-                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
-                       <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 011-1h3z"/>
-                   </svg>
-                   Facebook
+                   aria-label="Share on Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h2l1-4h-4V8a1 1 0 011-1h3z"/>
+                    </svg>
+                    Facebook
                 </a>
             </div>
         </div>
+    </div>
 
-        <!-- Back Link -->
-        <div style="margin-top: var(--fluent-spacing-l);">
-            <a href="/blog/" style="color: var(--fluent-color-brand-primary); text-decoration: none; font-weight: var(--fluent-font-weight-semibold);">
-                ← Back to all posts
+    <!-- Back Navigation -->
+    <div class="container">
+        <nav class="back-nav" aria-label="Breadcrumb">
+            <a href="/blog/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to all posts
             </a>
-        </div>
+        </nav>
     </div>
 </main>

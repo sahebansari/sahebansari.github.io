@@ -6,35 +6,44 @@ description: "A modern personal blog featuring thoughts on web development, tech
 ---
 
 <!-- Hero Section -->
-<section class="fluent-hero">
-    <div class="fluent-container">
-        <div class="fluent-hero-content">
-            <h1 class="fluent-hero-title">Welcome to my blog-a space where knowledge meets curiosity!</h1>
-            <p class="fluent-hero-subtitle">
-                Here, I share my thoughts on web development, technology trends, and creative ideas. Whether you're a seasoned developer or just starting out, there's something here for everyone. Dive in and explore the latest insights, tutorials, and musings on all things web and tech. Let's learn and grow together!
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Learn . Build . Share</h1>
+            <p class="hero-subtitle">
+                Welcome to my digital garden—a curated collection of
+                tutorials, insights, and experiments from my engineering journey. 
+                Learn about web development, software architecture, and the art of building
+                maintainable systems.
             </p>
-            <div class="fluent-hero-actions">
-                <a href="/blog/" class="fluent-button fluent-button-primary">Read Posts</a>
-                <a href="/about/" class="fluent-button fluent-button-secondary">Learn About Me</a>
+            <div class="hero-actions">
+                <a href="/blog/" class="btn btn--primary btn--lg">Explore Articles</a>
+                <a href="/about/" class="btn btn--secondary btn--lg">About Me</a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Blog Posts Section -->
-<section id="posts" class="fluent-posts-section">
-    <div class="fluent-container">
-        <h2 class="fluent-section-title">Latest Posts</h2>
+<!-- Latest Posts Section -->
+<section id="posts" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Latest Posts</h2>
+            <p class="section-description">
+                Explore the newest articles on web development, architecture, and engineering practices.
+            </p>
+        </div>
 
-        <div class="fluent-posts-grid">
-            {%- for post in collections.posts.slice(0, 4) -%}
-            {% set postCardClass = "" %}
+        <div class="posts-grid">
+            {%- for post in collections.posts.slice(0, 6) -%}
+            {% set postCardClass = "post-card fade-in" %}
+            {% set delayClass = " delay-" + (loop.index0 * 100)|string %}
             {% include "post-card.njk" %}
             {%- endfor -%}
         </div>
 
-        <div class="fluent-section-actions">
-            <a href="/blog/" class="fluent-button fluent-button-primary">View all posts</a>
+        <div class="section-actions" style="text-align: center; margin-top: var(--space-12);">
+            <a href="/blog/" class="btn btn--primary btn--lg">View all posts</a>
         </div>
     </div>
 </section>

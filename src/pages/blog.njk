@@ -6,19 +6,19 @@ description: "Browse the latest blog posts from Saheb Ansari on web development,
 permalink: "/blog/"
 ---
 
-<div class="blog-scroll-progress" aria-hidden="true">
+<div class="blog-scroll-progress" aria-hidden="true" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
     <div class="blog-scroll-progress-bar" id="blog-scroll-progress-bar"></div>
 </div>
 
 <header class="blog-page-header">
-    <div class="fluent-container">
-        <h1 class="page-title">Blog</h1>
+    <div class="container">
+        <h1 class="page-title gradient-text">Blog</h1>
         <p class="page-description">Fresh notes on web development, software architecture, and practical engineering lessons.</p>
     </div>
 </header>
 
-<main class="fluent-posts-section blog-posts-page">
-    <div class="fluent-container">
+<main class="section blog-posts-page" id="main-content">
+    <div class="container">
         <div class="blog-pagination-status" aria-live="polite">
             <span id="blog-visible-count">4</span> of {{ collections.posts.length }} posts shown
             <div class="blog-pagination-track" aria-hidden="true">
@@ -26,49 +26,74 @@ permalink: "/blog/"
             </div>
         </div>
 
-        <div class="fluent-posts-grid" id="blog-posts-grid" data-page-size="4">
+        <div class="posts-grid" id="blog-posts-grid" data-page-size="4">
             {%- for post in collections.posts -%}
-            {% set postCardClass = "blog-post-card" + (" is-hidden" if loop.index0 >= 4 else "") %}
+            {% set postCardClass = "post-card" + (" fade-in" if loop.index0 < 4 else " is-hidden") %}
+            {% set delayClass = " delay-" + (loop.index0 % 5 * 100)|string if loop.index0 < 4 else "" %}
             {% include "post-card.njk" %}
             {%- endfor -%}
         </div>
 
-        <div class="blog-load-status" id="blog-load-status">Scroll to load more posts</div>
+        <div class="blog-load-status" id="blog-load-status">
+            <div class="loading-spinner" style="display: none; margin: 0 auto;"></div>
+            <span id="load-message">Scroll to load more posts</span>
+        </div>
         <div id="blog-load-sentinel" class="blog-load-sentinel" aria-hidden="true"></div>
     </div>
 </main>
 
-<script>
+    <script>
     (function () {
-        const posts = Array.from(document.querySelectorAll('.blog-post-card'));
+        const posts = Array.from(document.querySelectorAll('.post-card'));
         const grid = document.getElementById('blog-posts-grid');
         const pageSize = Number(grid?.dataset.pageSize || 4);
         const visibleCount = document.getElementById('blog-visible-count');
         const paginationBar = document.getElementById('blog-pagination-bar');
         const scrollBar = document.getElementById('blog-scroll-progress-bar');
         const loadStatus = document.getElementById('blog-load-status');
+        const loadMessage = document.getElementById('load-message');
         const sentinel = document.getElementById('blog-load-sentinel');
         let shown = Math.min(pageSize, posts.length);
         let hasScrolled = false;
+        let isLoading = false;
 
         function updateProgress() {
             const percentage = posts.length ? (shown / posts.length) * 100 : 100;
             if (visibleCount) visibleCount.textContent = shown;
             if (paginationBar) paginationBar.style.width = percentage + '%';
-            if (loadStatus) {
-                loadStatus.textContent = shown >= posts.length ? 'All posts loaded' : 'Scroll to load more posts';
+            if (posts.length > 0) {
+                paginationBar.parentElement.style.display = 'flex';
             }
         }
 
         function revealNextPosts() {
-            if (shown >= posts.length) return;
+            if (shown >= posts.length || isLoading) return;
+            isLoading = true;
+
+            // Show loading state
+            if (loadStatus) {
+                loadStatus.style.opacity = '0.7';
+                loadMessage.textContent = 'Loading...';
+            }
+
             const nextShown = Math.min(shown + pageSize, posts.length);
-            posts.slice(shown, nextShown).forEach((post) => {
-                post.classList.remove('is-hidden');
-                post.classList.add('fade-in');
-            });
-            shown = nextShown;
-            updateProgress();
+
+            // Staggered reveal animation
+            setTimeout(() => {
+                posts.slice(shown, nextShown).forEach((post, index) => {
+                    post.classList.remove('is-hidden');
+                    post.classList.add('fade-in', 'fade-in-up');
+                    post.style.animationDelay = `${index * 100}ms`;
+                });
+                shown = nextShown;
+                updateProgress();
+                isLoading = false;
+
+                if (loadStatus) {
+                    loadStatus.style.opacity = '1';
+                    loadMessage.textContent = shown >= posts.length ? 'All posts loaded ✓' : 'Scroll to load more posts';
+                }
+            }, 300);
         }
 
         function updateScrollProgress() {
@@ -80,20 +105,30 @@ permalink: "/blog/"
 
         updateProgress();
         updateScrollProgress();
+
+        // Throttled scroll handler
+        let ticking = false;
         window.addEventListener('scroll', () => {
-            hasScrolled = true;
-            updateScrollProgress();
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
-                revealNextPosts();
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    hasScrolled = true;
+                    updateScrollProgress();
+                    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
+                        revealNextPosts();
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         }, { passive: true });
 
+        // Intersection Observer for load sentinel
         if ('IntersectionObserver' in window && sentinel) {
             const observer = new IntersectionObserver((entries) => {
                 if (hasScrolled && entries.some((entry) => entry.isIntersecting)) {
                     revealNextPosts();
                 }
-            }, { rootMargin: '300px 0px' });
+            }, { rootMargin: '600px 0px', threshold: 0.1 });
             observer.observe(sentinel);
         }
     })();

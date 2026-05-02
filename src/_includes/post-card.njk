@@ -1,18 +1,23 @@
-<a href="{{ post.url }}" class="fluent-post-card {{ postCardClass }}" style="text-decoration: none; color: inherit;">
-    <div class="fluent-post-header">
-        <img src="{{ post.data.image or 'https://picsum.photos/300/200?random=5' }}"
+<a href="{{ post.url }}" class="post-card" style="text-decoration: none; color: inherit;">
+    <div class="post-card-image-wrapper">
+        <img src="{{ post.data.image or 'https://picsum.photos/600/400?random=5' }}"
              alt="{{ post.data.title }}"
-             class="fluent-post-image">
+             class="post-card-image"
+             loading="lazy">
     </div>
-    <div class="fluent-post-content">
-        <div style="margin-bottom: var(--fluent-spacing-s);">
-            <span class="fluent-post-tag" style="font-size: var(--fluent-font-size-small);">{{ post.data.category or 'Article' }}</span>
+    <div class="post-card-content">
+        <div class="post-card-header">
+            <div class="post-card-meta">
+                <span class="post-card-tag">{{ post.data.category or 'Article' }}</span>
+            </div>
+            <h3 class="post-card-title">{{ post.data.title }}</h3>
         </div>
-        <h3 style="margin-bottom: var(--fluent-spacing-s); color: var(--fluent-color-text-primary);">{{ post.data.title }}</h3>
-        <p style="color: var(--fluent-color-text-secondary); margin-bottom: var(--fluent-spacing-m);">{{ post.data.excerpt or (post.content | stripHtml | slice(0, 150)) + '...' }}</p>
-        <div style="display: flex; justify-content: space-between; align-items: center; font-size: var(--fluent-font-size-small); color: var(--fluent-color-text-secondary);">
-            <span style="display: flex; align-items: center; gap: var(--fluent-spacing-xs);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+        <p class="post-card-excerpt">
+            {{ post.data.excerpt or (post.content | stripHtml | slice(0, 150)) + '...' }}
+        </p>
+        <div class="post-card-footer">
+            <span class="post-card-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                     <line x1="16" y1="2" x2="16" y2="6"></line>
                     <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -20,13 +25,15 @@
                 </svg>
                 {{ post.date | dateFilter }}
             </span>
-            <span style="display: flex; align-items: center; gap: var(--fluent-spacing-xs);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
+            <span class="post-card-readtime">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                 </svg>
-                {{ post.data.readingTime or '5 min' }}
+                {{ post.data.readingTime or '5 min read' }}
             </span>
         </div>
     </div>
+    <!-- Visual indicator for accessibility -->
+    <span class="sr-only">Read more about {{ post.data.title }}</span>
 </a>
