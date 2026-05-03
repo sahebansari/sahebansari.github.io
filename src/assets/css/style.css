@@ -823,7 +823,7 @@ main {
 .article-content pre code {
     display: block;
     padding: var(--space-4);
-    background-color: var(--color-gray-950) !important;
+     background-color: var(--color-gray-950) !important;
     color: var(--color-gray-500);
     font-size: var(--font-size-sm);
     line-height: var(--line-height-normal);

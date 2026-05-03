@@ -9,6 +9,10 @@
     {% set pageTitle = title if pageType == 'home' else title + ' - ' + siteName %}
     {% set schemaType = 'BlogPosting' if pageType == 'post' or layout == 'post' else 'WebPage' %}
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/favicon.ico" sizes="any">
 
     <!-- Primary Meta Tags -->
     <title>{{ pageTitle }}</title>
@@ -69,14 +73,14 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
+
     <!-- Styles -->
     <link rel="stylesheet" href="/assets/css/fluent2-tokens.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">    
 
-    <!-- Highlight.js for code syntax highlighting -->
+    <!-- Highlight.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/hljs.min.js" defer></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
@@ -175,10 +179,11 @@
     }
     </script>
     {% endif %}
+    </head>
 
+    <body class="fluent-body" data-theme="light" style="margin: 0; padding: 0;">
     <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-<body class="fluent-body" data-theme="light" style="margin: 0; padding: 0;">
     <!-- Navigation -->
     <nav class="navbar" aria-label="Main navigation">
         <div class="navbar-container">
@@ -271,6 +276,7 @@
     <!-- Scripts -->
     <script src="/assets/js/theme.js"></script>
     {% if highlightCode %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/hljs.min.js"></script>
     <script>
         // Highlight code blocks
         document.querySelectorAll('pre code').forEach(block => {
