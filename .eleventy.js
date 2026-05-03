@@ -2,6 +2,16 @@ module.exports = function(eleventyConfig) {
   // Copy assets to output
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/sitemap.njk"); // will render as sitemap.xml
+  eleventyConfig.addPassthroughCopy("src/humans.txt");
+  eleventyConfig.addPassthroughCopy("src/manifest.json");
+  eleventyConfig.addPassthroughCopy("src/browserconfig.xml");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/sitemap.njk"); // will render as sitemap.xml
+  eleventyConfig.addPassthroughCopy("src/humans.txt");
+  eleventyConfig.addPassthroughCopy("src/manifest.json");
+  eleventyConfig.addPassthroughCopy("src/browserconfig.xml");
   
   // Add Nunjucks filters
   eleventyConfig.addNunjucksFilter("dateFilter", (date) => {
@@ -35,17 +45,25 @@ module.exports = function(eleventyConfig) {
     return JSON.stringify(value, null, 2);
   });
 
-  // Create a collection for all posts
+  // Create a collection for all posts, sorted with newest first (reverse chronological)
   eleventyConfig.addCollection("posts", function(collection) {
     return collection
       .getFilteredByGlob("src/posts/**/*.md")
-      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date)); // descending: newest first
   });
 
   eleventyConfig.addCollection("sitemap", function(collection) {
     return collection
       .getAll()
-      .filter((item) => item.url && !item.url.endsWith(".xml") && !item.url.endsWith(".txt"));
+      .filter((item) => {
+        if (!item.url) return false;
+        const url = item.url;
+        // Exclude XML, TXT feeds, asset paths, special files
+        if (url.endsWith(".xml") || url.endsWith(".txt")) return false;
+        if (url.startsWith("/assets/") || url.startsWith("/css/") || url.startsWith("/js/") || url.includes("/images/")) return false;
+        if (url === "/humans.txt" || url === "/robots.txt" || url === "/manifest.json" || url === "/browserconfig.xml") return false;
+        return true;
+      });
   });
 
   return {

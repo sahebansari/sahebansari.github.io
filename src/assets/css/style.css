@@ -133,13 +133,191 @@ main {
     transition: left 0.5s;
 }
 
-.hero-actions .btn--primary:hover::before {
-    left: 100%;
+/* ──────────────────────────────────────────
+   HERO PROMO BANNER (TerraPDF)
+   ────────────────────────────────────────── */
+
+.hero-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .hero-content-wrapper {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: var(--space-12);
+    }
+}
+
+.hero-promo {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 340px;
+}
+
+.promo-card {
+    background: linear-gradient(145deg, 
+        var(--color-primary-600) 0%, 
+        var(--color-gray-50) 100%);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, 
+        var(--color-accent-coral) 40%, 
+        transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+[data-theme="dark"] .promo-card {
+    background: linear-gradient(145deg, 
+        var(--color-surface-2) 0%, 
+        var(--color-surface-1) 100%);
+}
+
+.promo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.promo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.promo-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+}
+
+.promo-badge {
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-semibold);
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(135deg, var(--color-success-border), #16a34a);
+    color: white;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.promo-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.promo-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+.promo-card .btn--accent {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-700));
+    color: white;
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.promo-card .btn--accent:hover {
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    color: white !important;
+}
+
+.promo-card .btn--accent:active {
+    transform: scale(0.98);
+}
+
+.promo-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border-primary);
+}
+
+.promo-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+.promo-feature svg {
+    color: var(--color-success-border);
+    flex-shrink: 0;
+}
+
+@media (max-width: 1023px) {
+    .hero-promo {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-promo {
+        max-width: 100%;
+    }
+    
+    .promo-card {
+        padding: var(--space-5);
+    }
+    
+    .promo-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+    
+    .promo-logo {
+        height: 40px;
+    }
 }
 
 /* ──────────────────────────────────────────
    SECTION ENHANCEMENTS
    ────────────────────────────────────────── */
+
 
 .section {
     position: relative;

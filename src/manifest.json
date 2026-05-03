@@ -1,0 +1,25 @@
+{
+  "name": "Saheb Ansari - Software Engineering Blog",
+  "short_name": "Saheb's Blog",
+  "description": "Thoughts on web development, software architecture, and practical engineering lessons.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0078d4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/assets/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["blog", "technology", "education"]
+}

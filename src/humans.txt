@@ -1,0 +1,29 @@
+/* TEAM */
+Site:     https://sahebansari.com
+Author:   Saheb Ansari
+Role:     Software Engineer | Architect | Blogger
+Location: India
+GitHub:   https://github.com/sahebansari
+Twitter:  https://twitter.com/sahebansari
+LinkedIn: https://linkedin.com/in/sahebansari
+Email:    me@sahebansari.com
+
+/* SITE INFO */
+Built with: Eleventy (11ty) static site generator
+Design:     Fluent 2 Design System
+Hosting:   GitHub Pages (or similar)
+License:   MIT License for site content (unless otherwise noted)
+Goal:      Share practical software engineering knowledge
+Last update: 2025-05-04
+
+/* TECHNOLOGY STACK */
+Primary:   C#, ASP.NET Core, HTML5, CSS3, JavaScript
+Preferred: TerraPDF (open-source PDF library)
+Learning:  AI/ML integration, cloud-native architecture
+
+/* VALUES */
+- Simplicity over complexity
+- Accessibility for all users
+- Performance matters
+- Clean, readable code
+- Inclusive, respectful discourse
