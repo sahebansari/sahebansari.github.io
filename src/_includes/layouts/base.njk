@@ -81,6 +81,20 @@
     <!-- Highlight.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- Google Analytics -->
+    {% if site.googleAnalyticsId and site.googleAnalyticsId != 'G-XXXXXXXXXX' %}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P7BGH4MKD"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-5P7BGH4MKD');
+        </script>
+    {% endif %}
+
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
