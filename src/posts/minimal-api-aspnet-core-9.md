@@ -5,7 +5,7 @@ title: Minimal API in ASP.NET Core 9 - A Deep Dive with Benefits and Comparisons
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-11-30
-image: "https://picsum.photos/1200/400?random=12"
+image: "https://picsum.photos/960/320?random=12"
 readingTime: "9 min read"
 excerpt: "Explore Minimal APIs in ASP.NET Core 9 - a lightweight, high-performance alternative to MVC that simplifies API development with reduced boilerplate code."
 ---

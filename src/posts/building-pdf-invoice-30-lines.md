@@ -5,7 +5,7 @@ title: "Building a PDF Invoice in 30 Lines of C# Code with TerraPDF"
 author: Saheb Ansari
 authorRole: Architect
 date: 2026-05-04
-image: "https://picsum.photos/1200/400?random=62"
+image: "https://picsum.photos/960/320?random=62"
 readingTime: "6 min read"
 excerpt: "Generate professional PDF invoices with just 30 lines of actual generation code using TerraPDF's fluent API. Complete working example with tables, headers, footers, totals, and multi-page support — all in a clean, declarative style."
 ---

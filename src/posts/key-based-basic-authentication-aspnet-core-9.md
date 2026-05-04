@@ -5,7 +5,7 @@ title: Implementing Key-Based and Basic Authentication in the same ASP.NET Core 
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-12-07
-image: "https://picsum.photos/1200/400?random=11"
+image: "https://picsum.photos/960/320?random=11"
 readingTime: "10 min read"
 excerpt: "Learn how to implement both key-based and basic authentication in ASP.NET Core 9 to create versatile and secure API endpoints for different authentication scenarios."
 ---

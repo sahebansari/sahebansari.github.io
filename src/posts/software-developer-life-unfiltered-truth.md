@@ -5,7 +5,7 @@ title: "The Unfiltered Truth: A Glimpse Into the Life of a Software Developer"
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-12-01
-image: "https://picsum.photos/1200/400?random=18"
+image: "https://picsum.photos/960/320?random=18"
 readingTime: "8 min read"
 excerpt: "Explore the real challenges software developers face including long hours, burnout, mental health struggles, and discover strategies for maintaining work-life balance."
 ---

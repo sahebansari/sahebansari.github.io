@@ -5,7 +5,7 @@ title: "TerraPDF vs iTextSharp vs PdfSharp: A Comprehensive .NET PDF Library Com
 author: Saheb Ansari
 authorRole: Architect
 date: 2026-05-04
-image: "https://picsum.photos/1200/400?random=41"
+image: "https://picsum.photos/960/320?random=41"
 readingTime: "12 min read"
 excerpt: "Compare three leading .NET PDF libraries: TerraPDF (modern MIT-licensed), iTextSharp/iText 7 (powerful but AGPL), and PdfSharp (classic open-source). We examine licensing, performance, API design, and real-world use cases with accurate, up-to-date facts."
 ---

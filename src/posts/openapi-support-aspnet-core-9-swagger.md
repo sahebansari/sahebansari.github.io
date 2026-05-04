@@ -5,7 +5,7 @@ title: OpenAPI Support in ASP.NET Core 9 and Using Swagger UI for API Documentat
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-12-21
-image: "https://picsum.photos/1200/400?random=10"
+image: "https://picsum.photos/960/320?random=10"
 readingTime: "8 min read"
 excerpt: "Learn how to leverage OpenAPI in ASP.NET Core 9 and use Swagger UI to create comprehensive and interactive API documentation for your web applications."
 ---

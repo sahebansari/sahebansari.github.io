@@ -5,7 +5,7 @@ title: Mastering Clean Code - Best Practices for Error-free, Readable, and Light
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-11-15
-image: "https://picsum.photos/1200/400?random=13"
+image: "https://picsum.photos/960/320?random=13"
 readingTime: "10 min read"
 excerpt: "Learn best practices for writing clean C# code including meaningful naming conventions, proper formatting, error handling, and performance optimization techniques."
 ---

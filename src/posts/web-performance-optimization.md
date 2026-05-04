@@ -6,7 +6,7 @@ author: Saheb Ansari
 authorRole: Technical Architect
 date: 2026-04-14
 readingTime: 6 min read
-image: "https://picsum.photos/1200/400?random=2"
+image: "https://picsum.photos/960/320?random=2"
 excerpt: "Website performance is crucial for user experience and SEO. Slow websites lose visitors and rank lower in search results. Learn practical techniques to optimize your site."
 ---
 

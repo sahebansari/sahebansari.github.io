@@ -6,7 +6,7 @@ author: Saheb Ansari
 authorRole: Architect
 date: 2026-04-12
 readingTime: 6 min read
-image: "https://picsum.photos/1200/400?random=4"
+image: "https://picsum.photos/960/320?random=4"
 excerpt: "Static Site Generators (SSGs) have revolutionized web development. They offer a perfect balance between simplicity and power. Explore popular SSG options and when to use each one."
 ---
 

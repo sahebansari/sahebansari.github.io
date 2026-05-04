@@ -5,7 +5,7 @@ title: "Are you TLS 1.2 ready? Force your secure Web API to use TLS 1.2"
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-11-09
-image: "https://picsum.photos/1200/400?random=17"
+image: "https://picsum.photos/960/320?random=17"
 readingTime: "5 min read"
 excerpt: "Learn how to upgrade your web APIs to use TLS 1.2 security protocol and fix connection errors caused by TLS version mismatches with modern browsers."
 ---

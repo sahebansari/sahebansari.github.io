@@ -5,7 +5,7 @@ title: Exploring the Unique Features of ASP.NET Core 9 - A Comprehensive Guide w
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-11-30
-image: "https://picsum.photos/1200/400?random=15"
+image: "https://picsum.photos/960/320?random=15"
 readingTime: "12 min read"
 excerpt: "Discover the unique and powerful features of ASP.NET Core 9 that enhance developer productivity, performance, and modern web application development capabilities."
 ---

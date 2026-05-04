@@ -5,7 +5,7 @@ title: "AI: The New Best Friend You Never Knew You Needed"
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-11-10
-image: "https://picsum.photos/1200/400?random=16"
+image: "https://picsum.photos/960/320?random=16"
 readingTime: "7 min read"
 excerpt: "Discover how Artificial Intelligence is transforming everyday life at home and work, making you more productive and freeing up time for the important things."
 ---

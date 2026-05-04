@@ -5,7 +5,7 @@ title: Fluent 2 is Microsoft's modern design system that provides a comprehensiv
 author: Saheb Ansari
 authorRole: Architect
 date: 2026-04-15
-image: "https://picsum.photos/1200/400?random=1"
+image: "https://picsum.photos/960/320?random=1"
 readingTime: "5 min read"
 excerpt: "Fluent 2 is Microsoft's modern design system providing comprehensive design tokens and components. Learn how to get started implementing Fluent 2 in your projects."
 ---

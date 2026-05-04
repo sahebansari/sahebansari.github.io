@@ -6,7 +6,7 @@ author: Saheb Ansari
 authorRole: Technical Architect
 date: 2026-04-13
 readingTime: 7 min read
-image: "https://picsum.photos/1200/400?random=3"
+image: "https://picsum.photos/960/320?random=3"
 excerpt: "Web accessibility ensures websites are usable by everyone, including people with disabilities. Building accessible applications benefits all users and is often a legal requirement."
 ---
 

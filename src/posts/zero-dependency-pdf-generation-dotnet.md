@@ -5,7 +5,7 @@ title: "Zero-Dependency PDF Generation in .NET: Building PDFs Without External L
 author: Saheb Ansari
 authorRole: Architect
 date: 2026-05-04
-image: "https://picsum.photos/1200/400?random=51"
+image: "https://picsum.photos/960/320?random=51"
 readingTime: "8 min read"
 excerpt: "Learn how to generate PDF files in .NET without relying on third-party libraries. Understand the PDF specification, build a lightweight PDF generator from scratch, or use TerraPDF — a real zero-dependency library that's production-ready."
 ---

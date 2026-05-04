@@ -5,7 +5,7 @@ title: Blogging Your Passions - Finding Creative Inspiration in Daily Life
 author: Saheb Ansari
 authorRole: Software Engineer
 date: 2024-11-13
-image: "https://picsum.photos/1200/400?random=14"
+image: "https://picsum.photos/960/320?random=14"
 readingTime: "6 min read"
 excerpt: "Discover how to find creative inspiration in everyday moments and channel your passions into meaningful blog posts that resonate with your audience."
 ---
