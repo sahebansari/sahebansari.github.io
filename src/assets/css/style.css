@@ -412,7 +412,7 @@ main {
 .post-card-image-wrapper {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 30 / 10; 
 }
 
 .post-card-image {
@@ -420,6 +420,8 @@ main {
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-slow);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .post-card:hover .post-card-image {
@@ -1146,6 +1148,51 @@ main {
     border-color: var(--color-primary-300);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+}
+
+.about-topic-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, 
+        color-mix(in srgb, var(--color-primary-500) 20%, var(--color-gray-50)), 
+        color-mix(in srgb, var(--color-secondary-500) 20%, var(--color-gray-50)));
+    border-radius: var(--radius-lg);
+    margin: 0 auto var(--space-4) auto;
+    transition: all var(--transition-fast);
+}
+
+[data-theme="dark"] .about-topic-icon {
+    background: linear-gradient(135deg, 
+        color-mix(in srgb, var(--color-primary-500) 25%, var(--color-surface-2)), 
+        color-mix(in srgb, var(--color-secondary-500) 25%, var(--color-surface-2)));
+}
+
+.about-topic-icon svg {
+    color: var(--color-primary-600);
+    width: 24px;
+    height: 24px;
+    transition: transform var(--transition-fast);
+}
+
+[data-theme="dark"] .about-topic-icon svg {
+    color: var(--color-primary-300);
+}
+
+.about-topic:hover .about-topic-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.about-topic:hover .about-topic-icon svg {
+    animation: iconFloat 0.3s ease-out;
+}
+
+@keyframes iconFloat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
 }
 
 .about-topic h3 {
