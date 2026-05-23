@@ -45,7 +45,11 @@ module.exports = function(eleventyConfig) {
     return JSON.stringify(value, null, 2);
   });
 
-  // Create a collection for all posts, sorted with newest first (reverse chronological)
+  // URL encode filter for social sharing
+  eleventyConfig.addNunjucksFilter("urlencode", (str) => {
+    if (!str) return '';
+    return encodeURIComponent(str);
+  });
   eleventyConfig.addCollection("posts", function(collection) {
     return collection
       .getFilteredByGlob("src/posts/**/*.md")

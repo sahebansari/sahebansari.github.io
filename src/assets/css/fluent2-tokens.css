@@ -615,6 +615,10 @@ img {
     .navbar-link {
         font-size: var(--font-size-xs);
     }
+
+    .navbar-brand-text {
+        display: none;
+    }
 }
 
 /* ──────────────────────────────────────────

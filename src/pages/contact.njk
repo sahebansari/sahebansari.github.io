@@ -1,0 +1,296 @@
+---
+layout: base
+title: "Contact"
+pageType: contact
+description: "Get in touch with Saheb Ansari. Have a question, collaboration idea, or just want to say hi? Send a message!"
+permalink: /contact/
+---
+
+<header class="contact-hero">
+    <div class="container">
+        <div class="contact-hero-content">
+            <div class="contact-hero-badge">💬 Get in Touch</div>
+            <h1 class="hero-title">Let's Connect</h1>
+            <p class="contact-hero-text">
+                Have a question about web development, architecture, or just want to say hi? 
+                I'd love to hear from you. Reach out using any of the methods below.
+            </p>
+            <div class="trust-signal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span><strong>Response Time:</strong> Usually within 24-48 hours</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="section contact-page">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <div class="form-header">
+                    <h2>Send a Message</h2>
+                    <p class="form-subtitle">Required fields are marked with <span class="required-indicator">*</span></p>
+                </div>
+                
+                <!-- Status Messages -->
+                <div id="form-status" class="form-status hidden"></div>
+                
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mvzyqoek" method="POST" novalidate>
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            Name <span class="required-indicator">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            class="form-input" 
+                            placeholder="John Doe"
+                            required
+                            minlength="2"
+                            maxlength="50"
+                            aria-describedby="name-error">
+                        <span id="name-error" class="form-error hidden"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            Email <span class="required-indicator">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            class="form-input" 
+                            placeholder="john@example.com"
+                            required
+                            aria-describedby="email-error">
+                        <span id="email-error" class="form-error hidden"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">
+                            Subject <span class="required-indicator">*</span>
+                        </label>
+                        <select id="subject" name="subject" class="form-input form-select" required aria-describedby="subject-help">
+                            <option value="">-- Select a subject --</option>
+                            <option value="Question">Question / Feedback</option>
+                            <option value="Collaboration">Collaboration Opportunity</option>
+                            <option value="Speaking">Speaking Inquiry</option>
+                            <option value="Blog">Blog Post Request</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span id="subject-help" class="form-help">This helps me prioritize your message</span>
+                        <span id="subject-error" class="form-error hidden"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            Message <span class="required-indicator">*</span>
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            class="form-textarea" 
+                            placeholder="Tell me more about what you're reaching out for..."
+                            rows="6"
+                            required
+                            minlength="10"
+                            maxlength="5000"
+                            aria-describedby="message-count message-error"></textarea>
+                        <div class="textarea-footer">
+                            <span id="message-count" class="char-count">0 / 5000 characters</span>
+                            <span id="message-error" class="form-error hidden"></span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--lg form-submit-btn" id="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Other Ways to Reach</h2>
+                <p class="contact-info-intro">Can't use the form? No problem! Here are other ways to connect:</p>
+                
+                <div class="contact-methods">
+                    <!-- Twitter -->
+                    <a href="https://twitter.com/sahebansari" target="_blank" rel="noopener noreferrer" class="contact-method-link">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2 9.19 9.19 0 01-2-7v7a3.65 3.65 0 001.88 3.06c.39-.14.75-.24 1.15-.31A3.65 3.65 0 008 20a4.48 4.48 0 01-2-.9v-.86a4.48 4.48 0 00 4.06 4.4 4.51 4.51 0 01-2 .07 4.48 4.48 0 004.48 4.48A4.49 4.49 0 0120 13.72a4.16 4.16 0 01-1.92.04 4.48 4.48 0 00 4.19 3.12A9 9 0 010 16c0 2.24.6 4.39 1.69 6.23A9 9 0 0023 3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Twitter</h3>
+                                <p class="contact-handle">@sahebansari</p>
+                                <p class="contact-desc">Quick questions & thoughts</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/sahebansari" target="_blank" rel="noopener noreferrer" class="contact-method-link">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                                    <circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>LinkedIn</h3>
+                                <p class="contact-handle">sahebansari</p>
+                                <p class="contact-desc">Professional inquiries</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/sahebansari" target="_blank" rel="noopener noreferrer" class="contact-method-link">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>GitHub</h3>
+                                <p class="contact-handle">sahebansari</p>
+                                <p class="contact-desc">Code & projects</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="contact-faq">
+                    <h3>Quick Questions?</h3>
+                    <div class="faq-items">
+                        <details class="faq-item">
+                            <summary>How quickly can I expect a response?</summary>
+                            <p>I aim to respond to all messages within 24-48 hours. During busy office works or out of office for personal matters, it may take longer. I appreciate your patience!</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Are you available for speaking engagements?</summary>
+                            <p>Yes! I enjoy speaking about web development, clean architecture, and modern engineering practices. Select "Speaking Inquiry" in the contact form.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Do you accept collaboration opportunities?</summary>
+                            <p>I'm open to discussions about collaborations, technical writing, and interesting projects. Feel free to reach out with details!</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Contact Form Validation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const messageField = document.getElementById('message');
+    const charCount = document.getElementById('message-count');
+    const statusDiv = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Character counter
+    if (messageField) {
+        messageField.addEventListener('input', function() {
+            const length = this.value.length;
+            charCount.textContent = `${length} / 5000 characters`;
+        });
+    }
+
+    // Form validation and submission
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous status
+            statusDiv.className = 'form-status hidden';
+            
+            // Validate form
+            if (!validateForm()) {
+                return;
+            }
+
+            // Submit form (works with Formspree)
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showStatus('success', '✓ Message sent successfully! I\'ll get back to you soon.');
+                    form.reset();
+                    charCount.textContent = '0 / 5000 characters';
+                } else {
+                    showStatus('error', '✗ Something went wrong. Please try again.');
+                }
+            })
+            .catch(error => {
+                showStatus('error', '✗ Network error. Please check your connection.');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+            });
+        });
+    }
+
+    function validateForm() {
+        let isValid = true;
+        const fields = form.querySelectorAll('input[required], textarea[required], select[required]');
+
+        fields.forEach(field => {
+            const errorDiv = document.getElementById(field.id + '-error');
+            field.classList.remove('error');
+            if (errorDiv) errorDiv.classList.add('hidden');
+
+            let error = '';
+
+            if (!field.value.trim()) {
+                error = 'This field is required.';
+            } else if (field.type === 'email' && !field.value.includes('@')) {
+                error = 'Please enter a valid email address.';
+            } else if (field.id === 'name' && field.value.length < 2) {
+                error = 'Name must be at least 2 characters.';
+            } else if (field.id === 'message' && field.value.length < 10) {
+                error = 'Message must be at least 10 characters.';
+            }
+
+            if (error) {
+                isValid = false;
+                field.classList.add('error');
+                if (errorDiv) {
+                    errorDiv.textContent = error;
+                    errorDiv.classList.remove('hidden');
+                }
+            }
+        });
+
+        return isValid;
+    }
+
+    function showStatus(type, message) {
+        statusDiv.className = `form-status ${type}`;
+        const icon = type === 'success' 
+            ? '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>'
+            : '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+        statusDiv.innerHTML = `${icon}<span>${message}</span>`;
+        statusDiv.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+    }
+});
+</script>

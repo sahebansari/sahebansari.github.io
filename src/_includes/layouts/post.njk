@@ -65,11 +65,15 @@ highlightCode: true
     </div>
 
     <!-- Share Section -->
+    {% set shareTitle = title %}
+    {% set shareDescription = excerpt or description or 'Check out this post' %}
+    {% set shareUrl = 'https://sahebansari.com' + page.url %}
+    {% set encodedText = (shareTitle + ' - ' + shareDescription) | urlencode %}
     <div class="share-section">
         <div class="container">
             <h3 class="share-title">Share this post</h3>
             <div class="share-buttons">
-                <a href="https://twitter.com/intent/tweet?url=https://sahebansari.com{{ page.url }}"
+                <a href="https://twitter.com/intent/tweet?url={{ shareUrl | urlencode }}&text={{ encodedText }}&via=sahebansari"
                    class="share-btn share-btn--twitter"
                    target="_blank"
                    rel="noopener noreferrer"
@@ -79,7 +83,7 @@ highlightCode: true
                     </svg>
                     Twitter
                 </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sahebansari.com{{ page.url }}"
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ shareUrl | urlencode }}"
                    class="share-btn share-btn--linkedin"
                    target="_blank"
                    rel="noopener noreferrer"
@@ -90,7 +94,7 @@ highlightCode: true
                     </svg>
                     LinkedIn
                 </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://sahebansari.com{{ page.url }}"
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl | urlencode }}"
                    class="share-btn share-btn--facebook"
                    target="_blank"
                    rel="noopener noreferrer"
