@@ -1,7 +1,7 @@
 {
-  "name": "Saheb Ansari - Software Engineering Blog",
-  "short_name": "Saheb's Blog",
-  "description": "Thoughts on web development, software architecture, and practical engineering lessons.",
+  "name": "Saheb Ansari - Author of TerraPDF",
+  "short_name": "Saheb Ansari",
+  "description": "Software engineering blog by Saheb Ansari, author of TerraPDF, a zero-dependency C# PDF generation library.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -9,17 +9,16 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/assets/images/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "src": "/assets/images/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
     },
     {
-      "src": "/assets/images/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "src": "/assets/images/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
-  "categories": ["blog", "technology", "education"]
+  "categories": ["blog", "technology", "education", "productivity"]
 }

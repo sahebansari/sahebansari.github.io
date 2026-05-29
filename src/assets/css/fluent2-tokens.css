@@ -616,6 +616,10 @@ img {
         font-size: var(--font-size-xs);
     }
 
+    .navbar-link--external {
+        display: none;
+    }
+
     .navbar-brand-text {
         display: none;
     }

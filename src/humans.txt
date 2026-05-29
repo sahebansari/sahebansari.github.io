@@ -1,23 +1,24 @@
 /* TEAM */
 Site:     https://sahebansari.com
 Author:   Saheb Ansari
-Role:     Software Engineer | Architect | Blogger
+Role:     Software Engineer | Architect | Author of TerraPDF
 Location: India
 GitHub:   https://github.com/sahebansari
 Twitter:  https://twitter.com/sahebansari
 LinkedIn: https://linkedin.com/in/sahebansari
+Project:  https://terrapdf.com
 
 /* SITE INFO */
 Built with: Eleventy (11ty) static site generator
 Design:     Fluent 2 Design System
 Hosting:   GitHub Pages (or similar)
 License:   MIT License for site content (unless otherwise noted)
-Goal:      Share practical software engineering knowledge
-Last update: 2025-05-04
+Goal:      Share practical software engineering knowledge and TerraPDF development notes
+Last update: 2026-05-29
 
 /* TECHNOLOGY STACK */
 Primary:   C#, ASP.NET Core, HTML5, CSS3, JavaScript
-Preferred: TerraPDF (open-source PDF library)
+Preferred: TerraPDF (zero-dependency C# PDF generation library)
 Learning:  AI/ML integration, cloud-native architecture
 
 /* VALUES */

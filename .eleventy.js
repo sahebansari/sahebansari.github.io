@@ -2,13 +2,6 @@ module.exports = function(eleventyConfig) {
   // Copy assets to output
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");
-  eleventyConfig.addPassthroughCopy("src/robots.txt");
-  eleventyConfig.addPassthroughCopy("src/sitemap.njk"); // will render as sitemap.xml
-  eleventyConfig.addPassthroughCopy("src/humans.txt");
-  eleventyConfig.addPassthroughCopy("src/manifest.json");
-  eleventyConfig.addPassthroughCopy("src/browserconfig.xml");
-  eleventyConfig.addPassthroughCopy("src/robots.txt");
-  eleventyConfig.addPassthroughCopy("src/sitemap.njk"); // will render as sitemap.xml
   eleventyConfig.addPassthroughCopy("src/humans.txt");
   eleventyConfig.addPassthroughCopy("src/manifest.json");
   eleventyConfig.addPassthroughCopy("src/browserconfig.xml");

@@ -2,7 +2,7 @@
 layout: base
 title: "About"
 pageType: about
-description: "Learn more about Saheb Ansari, a software engineer, architect, and blogger writing about web development, ASP.NET Core, accessibility, performance, and modern engineering practices."
+description: "Learn more about Saheb Ansari, a software engineer, architect, blogger, and author of TerraPDF, a zero-dependency C# PDF generation library."
 permalink: /about/
 ---
 
@@ -10,23 +10,24 @@ permalink: /about/
     <div class="container">
         <div class="about-hero-grid">
             <div class="about-hero-copy">
-                <p class="about-kicker">Software Engineer | Architect | Blogger</p>
+                <p class="about-kicker">Software Engineer | Author of TerraPDF | Blogger</p>
                 <h1 class="hero-title">Hi, I'm Saheb Ansari.</h1>
                 <p class="about-hero-text">
                     I build and write about modern web applications, clean architecture, accessible user
-                    experiences, and the practical engineering choices that make software easier to use
-                    and maintain.
+                    experiences, and practical engineering choices. I am also the author of
+                    <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">TerraPDF</a>,
+                    a lightweight, zero-dependency C# library for generating professional PDFs.
                 </p>
                 <div class="about-actions">
                     <a href="/blog/" class="btn btn--primary btn--lg">Read the blog</a>
-                    <a href="/contact/" class="btn btn--secondary btn--lg">Contact me</a>
+                    <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">Visit TerraPDF</a>
                 </div>
             </div>
             <div class="about-profile" aria-label="Saheb Ansari profile summary">
                 <img src="/assets/images/logo.svg" alt="Saheb Ansari Logo" class="about-profile-logo">
                 <div>
                     <h2 class="gradient-text">Saheb Ansari</h2>
-                    <p>Engineer, architect, and hands-on technical writer focused on building thoughtful software for the web.</p>
+                    <p>Engineer, architect, technical writer, and creator of TerraPDF for the .NET ecosystem.</p>
                 </div>
             </div>
         </div>
@@ -44,14 +45,42 @@ permalink: /about/
                     understand without a heroic amount of archaeology.
                 </p>
                 <p>
-                    Much of my work and writing sits at the intersection of web development, architecture,
-                    developer experience, and long-term maintainability.
+                    TerraPDF grew from that same point of view. It is built around a fluent API, practical
+                    document layout, and a zero-dependency C# implementation that developers can understand,
+                    ship, and trust.
+                </p>
+            </section>
+
+            <section class="fade-in delay-100">
+                <h2>TerraPDF</h2>
+                <p>
+                    I created TerraPDF to make professional PDF generation in .NET feel direct and dependable.
+                    It supports layouts, tables, images, links, bookmarks, vector graphics, WinAnsi text, and
+                    AES-128 PDF encryption without native binaries or third-party runtime packages.
+                </p>
+                <p>
+                    You can explore the library at
+                    <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">terrapdf.com</a>,
+                    install it from <a href="https://www.nuget.org/packages/TerraPDF/" target="_blank" rel="noopener noreferrer">NuGet</a>,
+                    or view the source on <a href="https://github.com/sahebansari/TerraPDF" target="_blank" rel="noopener noreferrer">GitHub</a>.
                 </p>
             </section>
 
             <section class="fade-in delay-200">
                 <h2>Areas I Write About</h2>
                 <div class="about-topic-grid">
+                    <div class="about-topic">
+                        <div class="about-topic-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="8" y1="13" x2="16" y2="13"></line>
+                                <line x1="8" y1="17" x2="16" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h3>TerraPDF and PDF Generation</h3>
+                        <p>Zero-dependency C# PDF generation, document layout, encryption, and fluent API design.</p>
+                    </div>
                     <div class="about-topic">
                         <div class="about-topic-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -81,11 +110,6 @@ permalink: /about/
                     <div class="about-topic">
                         <div class="about-topic-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <defs>
-                                    <style>
-                                        .palette-square { fill: none; }
-                                    </style>
-                                </defs>
                                 <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
                                 <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
                                 <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
@@ -117,15 +141,6 @@ permalink: /about/
                         <h3>Developer Tooling and Workflows</h3>
                         <p>CLI tools, automation, CI/CD, GitHub Actions, and optimizing the development experience.</p>
                     </div>
-                    <div class="about-topic">
-                        <div class="about-topic-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                            </svg>
-                        </div>
-                        <h3>DevOps and Cloud Infrastructure</h3>
-                        <p>Azure, Docker, containerization, monitoring, and deploying reliable applications at scale.</p>
-                    </div>
                 </div>
             </section>
 
@@ -145,6 +160,7 @@ permalink: /about/
             <section class="fade-in delay-500">
                 <h2>Connect</h2>
                 <ul class="list-with-icon">
+                    <li><a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">TerraPDF</a></li>
                     <li><a href="/contact/">Contact</a></li>
                     <li><a href="https://github.com/sahebansari">GitHub</a></li>
                     <li><a href="https://linkedin.com/in/sahebansari">LinkedIn</a></li>

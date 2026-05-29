@@ -19,7 +19,7 @@
     <meta name="title" content="{{ pageTitle }}">
     <meta name="description" content="{{ metaDescription }}">
     <meta name="author" content="{{ author or siteName }}">
-    <meta name="keywords" content="{{ category or 'blog,software engineering,web development,ASP.NET Core,architecture' }}">
+    <meta name="keywords" content="{{ category or 'TerraPDF,C# PDF generation,.NET PDF library,software engineering,web development,ASP.NET Core,architecture' }}">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
@@ -102,13 +102,17 @@
         "@type": "Person",
         "name": "Saheb Ansari",
         "url": "https://sahebansari.com",
-        "jobTitle": "{{ authorRole or 'Software Engineer' }}",
+        "jobTitle": "{{ authorRole or 'Software Engineer and TerraPDF Author' }}",
         "sameAs": [
             "https://twitter.com/sahebansari",
             "https://github.com/sahebansari",
-            "https://linkedin.com/in/sahebansari"
+            "https://linkedin.com/in/sahebansari",
+            "https://terrapdf.com"
         ],
         "knowsAbout": [
+            "TerraPDF",
+            "PDF Generation",
+            ".NET",
             "ASP.NET Core",
             "Web Development",
             "C#",
@@ -117,6 +121,16 @@
             "Accessibility",
             "Performance Optimization",
             "Fluent Design"
+        ],
+        "owns": [
+            {
+                "@type": "SoftwareSourceCode",
+                "name": "TerraPDF",
+                "url": "https://terrapdf.com",
+                "codeRepository": "https://github.com/sahebansari/TerraPDF",
+                "programmingLanguage": "C#",
+                "description": "A lightweight, zero-dependency, pure C# library for generating professional PDFs."
+            }
         ]
     }
     </script>
@@ -211,6 +225,7 @@
                 <a href="/blog/" class="navbar-link {% if page.url == '/blog/' %}navbar-link--active{% endif %}">Blog</a>
                 <a href="/about/" class="navbar-link {% if page.url == '/about/' %}navbar-link--active{% endif %}">About</a>
                 <a href="/contact/" class="navbar-link {% if page.url == '/contact/' %}navbar-link--active{% endif %}">Contact</a>
+                <a href="https://terrapdf.com/" class="navbar-link navbar-link--external" target="_blank" rel="noopener noreferrer">TerraPDF</a>
 
                 <!-- Theme Toggle -->
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
@@ -237,7 +252,7 @@
                         <img src="/assets/images/logo.svg" alt="Saheb Ansari Logo" class="footer-logo-img">
                         <h3 class="footer-title">Saheb Ansari</h3>
                     </div>
-                    <p class="footer-text">Software Engineer | Architect | Blogger</p>
+                    <p class="footer-text">Software Engineer | Architect | Author of TerraPDF</p>
                 </div>
                 <div>
                     <h4 class="footer-heading">Navigation</h4>
@@ -260,18 +275,20 @@
                     </ul>
                 </div>
                 <div>
+                    <h4 class="footer-heading">Projects</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://terrapdf.com">TerraPDF Website</a></li>
+                        <li><a href="https://www.nuget.org/packages/TerraPDF/">TerraPDF on NuGet</a></li>
+                        <li><a href="https://github.com/sahebansari/TerraPDF">TerraPDF on GitHub</a></li>
+                    </ul>
+                </div>
+                <div>
                     <h4 class="footer-heading">Social</h4>
                     <ul class="footer-links">
                         <li><a href="https://twitter.com/sahebansari">Twitter</a></li>
                         <li><a href="https://github.com/sahebansari">GitHub</a></li>
                         <li><a href="https://linkedin.com/in/sahebansari">LinkedIn</a></li>
                         <li><a href="https://facebook.com/sahebansari">Facebook</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-heading">Contact</h4>
-                    <ul class="footer-links">
-                        <li><a href="/contact/">Get in Touch</a></li>
                     </ul>
                 </div>
             </div>

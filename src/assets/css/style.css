@@ -238,6 +238,12 @@ main {
     margin-bottom: var(--space-4);
 }
 
+.promo-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+}
+
 .promo-card .btn--accent {
     width: 100%;
     justify-content: center;
@@ -263,6 +269,13 @@ main {
 
 .promo-card .btn--accent:active {
     transform: scale(0.98);
+}
+
+.promo-card .btn--secondary {
+    width: 100%;
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
 }
 
 .promo-features {
