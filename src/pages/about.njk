@@ -6,17 +6,26 @@ description: "Learn more about Saheb Ansari, a software engineer, architect, blo
 permalink: /about/
 ---
 
-<header class="about-hero">
+<header class="page-hero">
+    <div class="page-hero__bg" aria-hidden="true">
+        <span class="page-hero__aurora page-hero__aurora--1"></span>
+        <span class="page-hero__aurora page-hero__aurora--2"></span>
+        <span class="page-hero__grid"></span>
+    </div>
     <div class="container">
         <div class="about-hero-grid">
             <div class="about-hero-copy">
-                <p class="about-kicker">Software Engineer | Author of TerraPDF | Blogger</p>
-                <h1 class="hero-title">Hi, I'm Saheb Ansari.</h1>
+                <span class="home-pill">
+                    <span class="home-pill__dot"></span>
+                    Software Engineer · Author of TerraPDF &amp; TerraFluent · Blogger
+                </span>
+                <h1 class="page-hero__title">Hi, I'm <span class="home-hero__title-accent">Saheb Ansari.</span></h1>
                 <p class="about-hero-text">
                     I build and write about modern web applications, clean architecture, accessible user
                     experiences, and practical engineering choices. I am also the author of
-                    <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">TerraPDF</a>,
-                    a lightweight, zero-dependency C# library for generating professional PDFs.
+                    <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">TerraPDF</a>
+                    and <a href="https://terrafluent.dev/" target="_blank" rel="noopener noreferrer">TerraFluent</a>,
+                    zero-dependency C# libraries for generating professional PDF, HTML, and DOCX documents.
                 </p>
                 <div class="about-actions">
                     <a href="/blog/" class="btn btn--primary btn--lg">Read the blog</a>
@@ -55,14 +64,39 @@ permalink: /about/
                 <h2>TerraPDF</h2>
                 <p>
                     I created TerraPDF to make professional PDF generation in .NET feel direct and dependable.
-                    It supports layouts, tables, images, links, bookmarks, vector graphics, WinAnsi text, and
-                    AES-128 PDF encryption without native binaries or third-party runtime packages.
+                    Now at v2.0, it generates invoices, reports, contracts, and certificates from a fluent,
+                    code-first API — with tables, images, an automatic table of contents, headers and footers
+                    with page numbering, hyperlinks and bookmarks, Code128 barcodes and QR codes, AES-256
+                    encryption, and custom TrueType font embedding with full Unicode support (including
+                    Devanagari text shaping). It runs on .NET 8, 9, and 10 with zero dependencies and no
+                    native binaries.
                 </p>
                 <p>
                     You can explore the library at
                     <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">terrapdf.com</a>,
                     install it from <a href="https://www.nuget.org/packages/TerraPDF/" target="_blank" rel="noopener noreferrer">NuGet</a>,
                     or view the source on <a href="https://github.com/sahebansari/TerraPDF" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                </p>
+            </section>
+
+            <section class="fade-in delay-100">
+                <h2>TerraFluent</h2>
+                <p>
+                    TerraFluent grew out of TerraPDF: a family of zero-dependency .NET reporting libraries
+                    that produce professional documents in three formats from a single, unified fluent API.
+                    It ships as three NuGet packages —
+                    <strong>TerraFluent.Pdf.Reporting</strong> (a pure managed C# PDF engine),
+                    <strong>TerraFluent.Html.Reporting</strong> (paginated, print-ready HTML), and
+                    <strong>TerraFluent.Docx.Reporting</strong> (native Open XML Word documents).
+                </p>
+                <p>
+                    Across the suite you get advanced table layouts with merged cells and repeating headers,
+                    native barcodes and QR codes, charts and vector graphics, AES-256 encryption for PDF,
+                    smart pagination, and streaming async APIs — running cross-platform on Windows, Linux,
+                    macOS, containers, and serverless. Learn more at
+                    <a href="https://terrafluent.dev/" target="_blank" rel="noopener noreferrer">terrafluent.dev</a>
+                    or install it from
+                    <a href="https://www.nuget.org/packages?q=TerraFluent" target="_blank" rel="noopener noreferrer">NuGet</a>.
                 </p>
             </section>
 
@@ -78,8 +112,8 @@ permalink: /about/
                                 <line x1="8" y1="17" x2="16" y2="17"></line>
                             </svg>
                         </div>
-                        <h3>TerraPDF and PDF Generation</h3>
-                        <p>Zero-dependency C# PDF generation, document layout, encryption, and fluent API design.</p>
+                        <h3>PDF, DOCX &amp; HTML Reporting</h3>
+                        <p>Zero-dependency document generation with TerraPDF and TerraFluent — layout, encryption, barcodes, and fluent API design.</p>
                     </div>
                     <div class="about-topic">
                         <div class="about-topic-icon">
@@ -161,6 +195,7 @@ permalink: /about/
                 <h2>Connect</h2>
                 <ul class="list-with-icon">
                     <li><a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">TerraPDF</a></li>
+                    <li><a href="https://terrafluent.dev/" target="_blank" rel="noopener noreferrer">TerraFluent</a></li>
                     <li><a href="/contact/">Contact</a></li>
                     <li><a href="https://github.com/sahebansari">GitHub</a></li>
                     <li><a href="https://linkedin.com/in/sahebansari">LinkedIn</a></li>

@@ -5,99 +5,350 @@ pageType: home
 description: "Personal website of Saheb Ansari, software engineer, technical writer, and author of TerraPDF, a zero-dependency C# PDF generation library."
 ---
 
-<!-- Hero Section -->
-<section class="hero">
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="home-hero">
+    <div class="home-hero__bg" aria-hidden="true">
+        <span class="home-hero__aurora home-hero__aurora--1"></span>
+        <span class="home-hero__aurora home-hero__aurora--2"></span>
+        <span class="home-hero__aurora home-hero__aurora--3"></span>
+        <span class="home-hero__grid"></span>
+    </div>
+
+    <div class="container home-hero__inner">
+        <div class="home-hero__copy fade-in">
+            <span class="home-pill">
+                <span class="home-pill__dot"></span>
+                Software Engineer · Creator of TerraPDF &amp; TerraFluent
+            </span>
+
+            <h1 class="home-hero__title">
+                Learn. Build.
+                <span class="home-hero__title-accent">Share.</span>
+            </h1>
+
+            <p class="home-hero__lead">
+                Welcome to my digital garden — a curated collection of tutorials, insights,
+                and hard-won lessons from building maintainable systems, shipping
+                <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer">TerraPDF</a>
+                and <a href="https://terrafluent.dev/" target="_blank" rel="noopener noreferrer">TerraFluent</a>,
+                and writing about the craft of software.
+            </p>
+
+            <div class="home-hero__actions">
+                <a href="/blog/" class="btn btn--primary btn--lg home-cta">
+                    Explore Articles
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="/about/" class="btn btn--secondary btn--lg">About Me</a>
+            </div>
+
+            <dl class="home-stats">
+                <div class="home-stat">
+                    <dt class="home-stat__num">17<span>+</span></dt>
+                    <dd class="home-stat__label">Articles published</dd>
+                </div>
+                <div class="home-stat">
+                    <dt class="home-stat__num">0</dt>
+                    <dd class="home-stat__label">Runtime dependencies</dd>
+                </div>
+                <div class="home-stat">
+                    <dt class="home-stat__num">.NET&nbsp;8<span>·9·10</span></dt>
+                    <dd class="home-stat__label">Fully supported</dd>
+                </div>
+                <div class="home-stat">
+                    <dt class="home-stat__num">4</dt>
+                    <dd class="home-stat__label">Open-source libraries</dd>
+                </div>
+            </dl>
+        </div>
+
+        <!-- Generated report preview: what TerraPDF & TerraFluent produce -->
+        <div class="home-hero__visual fade-in delay-200">
+            <div class="doc-preview" role="img" aria-label="A stylized report document generated with TerraPDF and TerraFluent — showing a header, key metrics, a bar chart, a data table, and a barcode — exportable as PDF, HTML, or DOCX.">
+                <div class="doc-preview__tabs" aria-hidden="true">
+                    <span class="doc-tab doc-tab--active">PDF</span>
+                    <span class="doc-tab">HTML</span>
+                    <span class="doc-tab">DOCX</span>
+                </div>
+
+                <div class="doc-preview__sheet">
+                    <div class="doc-sheet__head">
+                        <div>
+                            <p class="doc-sheet__eyebrow">Quarterly Report</p>
+                            <p class="doc-sheet__title">Q3 Performance</p>
+                        </div>
+                        <span class="doc-sheet__logo" aria-hidden="true">SA</span>
+                    </div>
+
+                    <div class="doc-sheet__metrics">
+                        <div class="doc-metric">
+                            <span class="doc-metric__val">$48.2k</span>
+                            <span class="doc-metric__lbl">Revenue</span>
+                        </div>
+                        <div class="doc-metric">
+                            <span class="doc-metric__val">1,284</span>
+                            <span class="doc-metric__lbl">Orders</span>
+                        </div>
+                        <div class="doc-metric">
+                            <span class="doc-metric__val doc-metric__val--up">+18%</span>
+                            <span class="doc-metric__lbl">Growth</span>
+                        </div>
+                    </div>
+
+                    <div class="doc-sheet__chart" aria-hidden="true">
+                        <span style="--h: 42%"></span>
+                        <span style="--h: 66%"></span>
+                        <span style="--h: 50%"></span>
+                        <span style="--h: 78%"></span>
+                        <span style="--h: 58%"></span>
+                        <span style="--h: 96%"></span>
+                    </div>
+
+                    <div class="doc-sheet__table" aria-hidden="true">
+                        <div class="doc-row doc-row--head">
+                            <span class="doc-cell doc-cell--wide"></span>
+                            <span class="doc-cell"></span>
+                            <span class="doc-cell"></span>
+                        </div>
+                        <div class="doc-row">
+                            <span class="doc-cell doc-cell--wide"></span>
+                            <span class="doc-cell"></span>
+                            <span class="doc-cell"></span>
+                        </div>
+                        <div class="doc-row">
+                            <span class="doc-cell doc-cell--wide"></span>
+                            <span class="doc-cell"></span>
+                            <span class="doc-cell"></span>
+                        </div>
+                    </div>
+
+                    <div class="doc-sheet__foot">
+                        <span class="doc-barcode" aria-hidden="true"></span>
+                        <span class="doc-sheet__page">Page 1 / 4</span>
+                    </div>
+                </div>
+
+                <span class="doc-preview__badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Rendered with TerraFluent
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     TECH MARQUEE
+     ============================================================ -->
+<div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+        {% set techList = ["C#", ".NET 8 / 9", "ASP.NET Core", "TerraPDF", "PDF Generation", "Clean Architecture", "Minimal APIs", "OpenAPI", "Accessibility", "Performance", "Design Systems", "Fluent 2"] %}
+        {% for pass in [1, 2] %}
+            {% for tech in techList %}
+            <span class="marquee__item">{{ tech }}</span>
+            <span class="marquee__sep">◆</span>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+
+<!-- ============================================================
+     TERRAPDF SPOTLIGHT
+     ============================================================ -->
+<section class="section spotlight">
     <div class="container">
-        <div class="hero-content-wrapper">
-            <div class="hero-content">
-                <p class="about-kicker">Software Engineer | Author of TerraPDF</p>
-                <h1 class="hero-title">Learn . Build . Share</h1>
-                <p class="hero-subtitle">
-                    Welcome to my digital garden - a curated collection of tutorials, insights,
-                    and experiments from my engineering journey. I write about web development,
-                    software architecture, maintainable systems, and the lessons I learn while
-                    building TerraPDF.
+        <div class="spotlight__panel">
+            <div class="spotlight__glow" aria-hidden="true"></div>
+            <div class="spotlight__content">
+                <span class="home-eyebrow">Featured Project · v2.0</span>
+                <div class="spotlight__head">
+                    <img src="https://github.com/sahebansari/TerraPDF/raw/master/logo.png"
+                         alt="TerraPDF logo" class="spotlight__logo" loading="lazy">
+                    <div>
+                        <h2 class="spotlight__title">TerraPDF</h2>
+                        <p class="spotlight__tagline">The free C# PDF library for .NET developers</p>
+                    </div>
+                </div>
+                <p class="spotlight__desc">
+                    Generate professional PDFs entirely from C# — invoices, reports, contracts, and
+                    certificates — with a fluent, code-first API. Tables, images, an automatic table of
+                    contents, barcodes and QR codes, AES-256 encryption, and custom TrueType fonts with
+                    full Unicode (including Devanagari) shaping — all in pure C#, zero dependencies.
                 </p>
-                <div class="hero-actions">
-                    <a href="/blog/" class="btn btn--primary btn--lg">Explore Articles</a>
-                    <a href="/about/" class="btn btn--secondary btn--lg">About Me</a>
+
+                <ul class="spotlight__features">
+                    <li><span class="check" aria-hidden="true">✓</span> Zero dependencies, pure C#</li>
+                    <li><span class="check" aria-hidden="true">✓</span> AES-256 encryption</li>
+                    <li><span class="check" aria-hidden="true">✓</span> Barcodes &amp; QR codes</li>
+                    <li><span class="check" aria-hidden="true">✓</span> Unicode font embedding</li>
+                    <li><span class="check" aria-hidden="true">✓</span> Auto table of contents</li>
+                    <li><span class="check" aria-hidden="true">✓</span> MIT licensed &amp; free</li>
+                </ul>
+
+                <div class="spotlight__actions">
+                    <a href="https://terrapdf.com/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Visit TerraPDF</a>
+                    <a href="https://www.nuget.org/packages/TerraPDF/" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">Get it on NuGet</a>
+                    <a href="https://github.com/sahebansari/TerraPDF" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg">GitHub ↗</a>
                 </div>
             </div>
 
-            <!-- TerraPDF Promo Banner -->
-            <div class="hero-promo">
-                <div class="promo-card">
-                    <div class="promo-header">
-                        <img src="https://github.com/sahebansari/TerraPDF/raw/master/logo.png"
-                             alt="TerraPDF Logo"
-                             class="promo-logo">
-                        <span class="promo-badge">Created by Saheb</span>
+            <div class="spotlight__badges" aria-hidden="true">
+                <span class="spotlight__badge">.NET 8·9·10</span>
+                <span class="spotlight__badge">MIT</span>
+                <span class="spotlight__badge">0 deps</span>
+                <span class="spotlight__badge">AES-256</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     TERRAFLUENT SPOTLIGHT
+     ============================================================ -->
+<section class="section spotlight spotlight--alt">
+    <div class="container">
+        <div class="spotlight__panel spotlight__panel--fluent">
+            <div class="spotlight__glow spotlight__glow--teal" aria-hidden="true"></div>
+            <div class="spotlight__content spotlight__content--wide">
+                <span class="home-eyebrow">New Project · 2026</span>
+                <div class="spotlight__head">
+                    <img src="/assets/images/terra_fluent_logo.png" alt="TerraFluent logo" class="spotlight__logo spotlight__logo--bleed" loading="lazy">
+                    <div>
+                        <h2 class="spotlight__title">TerraFluent</h2>
+                        <p class="spotlight__tagline">Generate PDF, HTML &amp; DOCX reports from one fluent API</p>
                     </div>
-                    <h3 class="promo-title">TerraPDF</h3>
-                    <p class="promo-description">
-                        My zero-dependency, pure C# PDF generation library for .NET 8 and 9.
-                        MIT licensed, fluent API, production-ready.
-                    </p>
-                    <div class="promo-actions">
-                        <a href="https://terrapdf.com/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn--sm btn--accent">
-                            Visit TerraPDF
-                        </a>
-                        <a href="https://www.nuget.org/packages/TerraPDF/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn btn--sm btn--secondary">
-                            NuGet
-                        </a>
+                </div>
+                <p class="spotlight__desc">
+                    A family of zero-dependency .NET reporting libraries that produce professional
+                    documents in three formats from a single, unified fluent API — advanced table
+                    layouts with merged cells and repeating headers, native barcodes and QR codes,
+                    charts, smart pagination, and streaming async output. Cross-platform on Windows,
+                    Linux, macOS, containers, and serverless.
+                </p>
+
+                <div class="format-cards">
+                    <div class="format-card">
+                        <span class="format-card__badge">PDF</span>
+                        <span class="format-card__name">TerraFluent.Pdf.Reporting</span>
+                        <span class="format-card__note">Pure C# engine · AES-256 · .NET 8/9/10</span>
                     </div>
-                    <div class="promo-features">
-                        <span class="promo-feature">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            Zero dependencies
-                        </span>
-                        <span class="promo-feature">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            MIT License
-                        </span>
-                        <span class="promo-feature">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            .NET 8+ ready
-                        </span>
+                    <div class="format-card">
+                        <span class="format-card__badge">HTML</span>
+                        <span class="format-card__name">TerraFluent.Html.Reporting</span>
+                        <span class="format-card__note">Paginated, print-ready · netstandard2.0+</span>
                     </div>
+                    <div class="format-card">
+                        <span class="format-card__badge">DOCX</span>
+                        <span class="format-card__name">TerraFluent.Docx.Reporting</span>
+                        <span class="format-card__note">Native Open XML Word · netstandard2.0+</span>
+                    </div>
+                </div>
+
+                <div class="spotlight__actions">
+                    <a href="https://terrafluent.dev/" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">Visit TerraFluent</a>
+                    <a href="https://www.nuget.org/packages?q=TerraFluent" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">Browse on NuGet</a>
+                    <a href="https://github.com/sahebansari" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--lg">GitHub ↗</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Latest Posts Section -->
+<!-- ============================================================
+     LATEST WRITING
+     ============================================================ -->
 <section id="posts" class="section">
     <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Latest Posts</h2>
-            <p class="section-description">
-                Explore the newest articles on web development, TerraPDF, architecture, and engineering practices.
-            </p>
+        <div class="home-section-head">
+            <div>
+                <span class="home-eyebrow">From the blog</span>
+                <h2 class="home-section-title">Latest Writing</h2>
+            </div>
+            <a href="/blog/" class="home-section-link">
+                View all posts
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
         </div>
 
+        {% set featured = collections.posts[0] %}
+        {% if featured %}
+        <a href="{{ featured.url }}" class="featured-post fade-in">
+            <div class="featured-post__media">
+                <img src="{{ featured.data.image or 'https://picsum.photos/900/600?random=11' }}"
+                     alt="{{ featured.data.title }}" class="featured-post__img" loading="lazy">
+            </div>
+            <div class="featured-post__body">
+                <div class="featured-post__meta">
+                    <span class="post-card-tag">{{ featured.data.category or 'Article' }}</span>
+                    <span class="featured-post__flag">Latest</span>
+                </div>
+                <h3 class="featured-post__title">{{ featured.data.title }}</h3>
+                <p class="featured-post__excerpt">
+                    {{ featured.data.excerpt or (featured.content | stripHtml | slice(0, 220)) + '...' }}
+                </p>
+                <div class="featured-post__footer">
+                    <span class="post-card-date">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        {{ featured.date | dateFilter }}
+                    </span>
+                    <span class="post-card-readtime">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        {{ featured.data.readingTime or '5 min read' }}
+                    </span>
+                    <span class="featured-post__read">Read article →</span>
+                </div>
+            </div>
+        </a>
+        {% endif %}
+
         <div class="posts-grid">
-            {%- for post in collections.posts.slice(0, 6) -%}
+            {%- for post in collections.posts.slice(1, 7) -%}
             {% set postCardClass = "post-card fade-in" %}
             {% set delayClass = " delay-" + (loop.index0 * 100)|string %}
             {% include "post-card.njk" %}
             {%- endfor -%}
         </div>
+    </div>
+</section>
 
-        <div class="section-actions" style="text-align: center; margin-top: var(--space-12);">
-            <a href="/blog/" class="btn btn--primary btn--lg">View all posts</a>
+<!-- ============================================================
+     TOPICS RAIL
+     ============================================================ -->
+<section class="section topics">
+    <div class="container">
+        <div class="home-section-head home-section-head--center">
+            <div>
+                <span class="home-eyebrow">Explore by theme</span>
+                <h2 class="home-section-title">What I Write About</h2>
+            </div>
+        </div>
+        <div class="topics__grid">
+            <a href="/blog/" class="topic-chip"><span class="topic-chip__icon">📄</span> TerraPDF &amp; PDF Generation</a>
+            <a href="/blog/" class="topic-chip"><span class="topic-chip__icon">⚙️</span> ASP.NET Core &amp; APIs</a>
+            <a href="/blog/" class="topic-chip"><span class="topic-chip__icon">🧱</span> Architecture &amp; Clean Code</a>
+            <a href="/blog/" class="topic-chip"><span class="topic-chip__icon">🎨</span> Frontend &amp; Design Systems</a>
+            <a href="/blog/" class="topic-chip"><span class="topic-chip__icon">⚡</span> Performance &amp; Accessibility</a>
+            <a href="/blog/" class="topic-chip"><span class="topic-chip__icon">🛠️</span> Tooling &amp; Workflows</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CLOSING CTA
+     ============================================================ -->
+<section class="home-cta-band">
+    <div class="container home-cta-band__inner">
+        <div class="home-cta-band__glow" aria-hidden="true"></div>
+        <h2 class="home-cta-band__title">Let's build something worth reading about.</h2>
+        <p class="home-cta-band__text">
+            New tutorials, deep dives, and TerraPDF updates land here regularly.
+            Read the latest, or reach out if you'd like to collaborate.
+        </p>
+        <div class="home-cta-band__actions">
+            <a href="/blog/" class="btn btn--lg home-cta-band__primary">Start reading</a>
+            <a href="/contact/" class="btn btn--lg home-cta-band__ghost">Get in touch</a>
         </div>
     </div>
 </section>

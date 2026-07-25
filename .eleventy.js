@@ -1,4 +1,18 @@
+const path = require("path");
+const { generateOgImages } = require("./scripts/generate-og.js");
+
 module.exports = function(eleventyConfig) {
+  // Generate social share images (1200x630 PNG) into the output dir before each
+  // build. Incremental (mtime-based) during --serve/--watch so rebuilds stay fast.
+  eleventyConfig.on("eleventy.before", ({ dir } = {}) => {
+    const outputDir = (dir && dir.output) || "_site";
+    const outDir = path.resolve(__dirname, outputDir, "assets/images/og");
+    // Incremental is always safe: a cleaned (empty) output forces full regen,
+    // and a changed post or generator script invalidates the affected images.
+    const { written, skipped } = generateOgImages(outDir, { incremental: true });
+    console.log(`[og] ${written} image(s) generated, ${skipped} up-to-date`);
+  });
+
   // Copy assets to output
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/CNAME");

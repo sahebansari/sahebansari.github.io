@@ -3,8 +3,18 @@ layout: base
 highlightCode: true
 ---
 
+<!-- Reading Progress -->
+<div class="blog-scroll-progress" aria-hidden="true" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="blog-scroll-progress-bar" id="article-progress-bar"></div>
+</div>
+
 <!-- Article Header -->
-<header class="article-header" id="main-content">
+<header class="page-hero article-hero">
+    <div class="page-hero__bg" aria-hidden="true">
+        <span class="page-hero__aurora page-hero__aurora--1"></span>
+        <span class="page-hero__aurora page-hero__aurora--2"></span>
+        <span class="page-hero__grid"></span>
+    </div>
     <div class="container">
         <div class="article-header-content">
             <div class="article-category">
@@ -70,40 +80,38 @@ highlightCode: true
     {% set shareUrl = 'https://sahebansari.com' + page.url %}
     {% set encodedText = (shareTitle + ' - ' + shareDescription) | urlencode %}
     <div class="share-section">
-        <div class="container">
-            <h3 class="share-title">Share this post</h3>
+        <div class="share-bar">
+            <span class="share-title">Share</span>
             <div class="share-buttons">
                 <a href="https://twitter.com/intent/tweet?url={{ shareUrl | urlencode }}&text={{ encodedText }}&via=sahebansari"
-                   class="share-btn share-btn--twitter"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Share on Twitter">
+                   class="share-btn share-btn--twitter" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2 9.19 9.19 0 01-2-7v7a3.65 3.65 0 001.88 3.06c.39-.14.75-.24 1.15-.31A3.65 3.65 0 008 20a4.48 4.48 0 01-2-.9v-.86a4.48 4.48 0 00 4.06 4.4 4.51 4.51 0 01-2 .07 4.48 4.48 0 004.48 4.48A4.49 4.49 0 0120 13.72a4.16 4.16 0 01-1.92.04 4.48 4.48 0 00 4.19 3.12A9 9 0 010 16c0 2.24.6 4.39 1.69 6.23A9 9 0 0023 3z"/>
                     </svg>
-                    Twitter
+                    <span class="sr-only">Share on Twitter</span>
                 </a>
                 <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ shareUrl | urlencode }}"
-                   class="share-btn share-btn--linkedin"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Share on LinkedIn">
+                   class="share-btn share-btn--linkedin" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
                         <circle cx="4" cy="4" r="2"/>
                     </svg>
-                    LinkedIn
+                    <span class="sr-only">Share on LinkedIn</span>
                 </a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl | urlencode }}"
-                   class="share-btn share-btn--facebook"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Share on Facebook">
+                   class="share-btn share-btn--facebook" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h2l1-4h-4V8a1 1 0 011-1h3z"/>
                     </svg>
-                    Facebook
+                    <span class="sr-only">Share on Facebook</span>
                 </a>
+                <button type="button" class="share-btn share-btn--copy" data-share-copy data-url="{{ shareUrl }}" aria-label="Copy link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                    <span class="sr-only">Copy link</span>
+                </button>
             </div>
         </div>
     </div>
@@ -121,3 +129,96 @@ highlightCode: true
         </nav>
     </div>
 </main>
+
+<!-- Article enhancements: code-window chrome, copy buttons, reading progress -->
+<script>
+(function () {
+    // ── Wrap each code block in a homepage-style code window ──
+    const copyIcon = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+
+    document.querySelectorAll('.article-content pre').forEach(function (pre) {
+        if (pre.closest('.code-block')) return; // guard against re-runs
+        const code = pre.querySelector('code');
+        if (!code) return;
+
+        // Detect language from the highlight.js / markdown class
+        let lang = 'code';
+        code.classList.forEach(function (c) {
+            if (c.indexOf('language-') === 0 && c.length > 9) lang = c.slice(9);
+        });
+
+        const wrap = document.createElement('figure');
+        wrap.className = 'code-block';
+
+        const bar = document.createElement('figcaption');
+        bar.className = 'code-block__bar';
+        bar.innerHTML =
+            '<span class="code-block__dots"><i></i><i></i><i></i></span>' +
+            '<span class="code-block__lang">' + lang + '</span>' +
+            '<button class="code-block__copy" type="button" aria-label="Copy code to clipboard">' +
+            copyIcon + '<span>Copy</span></button>';
+
+        pre.parentNode.insertBefore(wrap, pre);
+        wrap.appendChild(bar);
+        wrap.appendChild(pre);
+
+        const btn = bar.querySelector('.code-block__copy');
+        const label = btn.querySelector('span');
+        btn.addEventListener('click', function () {
+            const text = code.innerText;
+            const done = function () {
+                btn.classList.add('is-copied');
+                label.textContent = 'Copied!';
+                setTimeout(function () {
+                    btn.classList.remove('is-copied');
+                    label.textContent = 'Copy';
+                }, 1800);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(done).catch(function () {});
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = text; document.body.appendChild(ta); ta.select();
+                try { document.execCommand('copy'); done(); } catch (e) {}
+                document.body.removeChild(ta);
+            }
+        });
+    });
+
+    // ── Copy-link share button ──
+    const copyBtn = document.querySelector('[data-share-copy]');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+            const url = copyBtn.getAttribute('data-url') || window.location.href;
+            const done = function () {
+                copyBtn.classList.add('is-copied');
+                setTimeout(function () { copyBtn.classList.remove('is-copied'); }, 1600);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(done).catch(function () {});
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = url; document.body.appendChild(ta); ta.select();
+                try { document.execCommand('copy'); done(); } catch (e) {}
+                document.body.removeChild(ta);
+            }
+        });
+    }
+
+    // ── Reading progress bar ──
+    const bar = document.getElementById('article-progress-bar');
+    if (bar) {
+        let ticking = false;
+        const update = function () {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+            bar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+            ticking = false;
+        };
+        update();
+        window.addEventListener('scroll', function () {
+            if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+    }
+})();
+</script>

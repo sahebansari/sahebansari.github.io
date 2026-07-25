@@ -4,7 +4,14 @@
     {% set siteUrl = "https://sahebansari.com" %}
     {% set siteName = "Saheb Ansari" %}
     {% set metaDescription = description or excerpt or 'Welcome to my blog-a space where knowledge meets curiosity!' %}
-    {% set socialImage = ogImage or image or '/assets/images/logo.svg' %}
+    {# Social share image: explicit ogImage wins; posts use their generated card; everything else uses the site default. Cards are 1200x630 PNGs (SVG is not supported by social scrapers). Regenerate with `npm run og`. #}
+    {% if ogImage %}
+        {% set socialImage = ogImage %}
+    {% elif (layout == 'post' or pageType == 'post') and page.fileSlug %}
+        {% set socialImage = '/assets/images/og/' + page.fileSlug + '.png' %}
+    {% else %}
+        {% set socialImage = '/assets/images/og/default.png' %}
+    {% endif %}
     {% set socialImageUrl = socialImage | absoluteUrl %}
     {% set pageTitle = title if pageType == 'home' else title + ' - ' + siteName %}
     {% set schemaType = 'BlogPosting' if pageType == 'post' or layout == 'post' else 'WebPage' %}
@@ -19,7 +26,7 @@
     <meta name="title" content="{{ pageTitle }}">
     <meta name="description" content="{{ metaDescription }}">
     <meta name="author" content="{{ author or siteName }}">
-    <meta name="keywords" content="{{ category or 'TerraPDF,C# PDF generation,.NET PDF library,software engineering,web development,ASP.NET Core,architecture' }}">
+    <meta name="keywords" content="{{ category or 'TerraPDF,TerraFluent,C# PDF generation,.NET PDF library,DOCX generation,HTML reports,report generation,software engineering,web development,ASP.NET Core,architecture' }}">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
@@ -78,8 +85,8 @@
     <link rel="stylesheet" href="/assets/css/fluent2-tokens.css">
     <link rel="stylesheet" href="/assets/css/style.css">    
 
-    <!-- Highlight.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <!-- Highlight.js CSS (light theme to match the white code windows) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
     <!-- Google Analytics -->
@@ -102,16 +109,21 @@
         "@type": "Person",
         "name": "Saheb Ansari",
         "url": "https://sahebansari.com",
-        "jobTitle": "{{ authorRole or 'Software Engineer and TerraPDF Author' }}",
+        "jobTitle": "{{ authorRole or 'Software Engineer, Author of TerraPDF and TerraFluent' }}",
         "sameAs": [
             "https://twitter.com/sahebansari",
             "https://github.com/sahebansari",
             "https://linkedin.com/in/sahebansari",
-            "https://terrapdf.com"
+            "https://terrapdf.com",
+            "https://terrafluent.dev"
         ],
         "knowsAbout": [
             "TerraPDF",
+            "TerraFluent",
             "PDF Generation",
+            "DOCX Generation",
+            "HTML Reporting",
+            "Report Generation",
             ".NET",
             "ASP.NET Core",
             "Web Development",
@@ -129,7 +141,14 @@
                 "url": "https://terrapdf.com",
                 "codeRepository": "https://github.com/sahebansari/TerraPDF",
                 "programmingLanguage": "C#",
-                "description": "A lightweight, zero-dependency, pure C# library for generating professional PDFs."
+                "description": "A free, zero-dependency, pure C# library for generating professional PDFs — invoices, reports, contracts, and certificates — with a fluent, code-first API, AES-256 encryption, barcodes, QR codes, and Unicode font embedding."
+            },
+            {
+                "@type": "SoftwareSourceCode",
+                "name": "TerraFluent",
+                "url": "https://terrafluent.dev",
+                "programmingLanguage": "C#",
+                "description": "A family of zero-dependency .NET reporting libraries for generating PDF, HTML, and DOCX documents from a single fluent API."
             }
         ]
     }
@@ -222,10 +241,11 @@
 
             <div class="navbar-links">
                 <a href="/" class="navbar-link {% if page.url == '/' %}navbar-link--active{% endif %}">Home</a>
-                <a href="/blog/" class="navbar-link {% if page.url == '/blog/' %}navbar-link--active{% endif %}">Blog</a>
+                <a href="/blog/" class="navbar-link {% if page.url == '/blog/' or layout == 'post' or '/posts/' in page.url %}navbar-link--active{% endif %}">Blog</a>
                 <a href="/about/" class="navbar-link {% if page.url == '/about/' %}navbar-link--active{% endif %}">About</a>
                 <a href="/contact/" class="navbar-link {% if page.url == '/contact/' %}navbar-link--active{% endif %}">Contact</a>
                 <a href="https://terrapdf.com/" class="navbar-link navbar-link--external" target="_blank" rel="noopener noreferrer">TerraPDF</a>
+                <a href="https://terrafluent.dev/" class="navbar-link navbar-link--external" target="_blank" rel="noopener noreferrer">TerraFluent</a>
 
                 <!-- Theme Toggle -->
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
@@ -241,7 +261,9 @@
     </nav>
 
     <!-- Page Content -->
+    <div id="main-content" class="site-main" tabindex="-1">
     {{ content | safe }}
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -252,7 +274,7 @@
                         <img src="/assets/images/logo.svg" alt="Saheb Ansari Logo" class="footer-logo-img">
                         <h3 class="footer-title">Saheb Ansari</h3>
                     </div>
-                    <p class="footer-text">Software Engineer | Architect | Author of TerraPDF</p>
+                    <p class="footer-text">Software Engineer | Architect | Author of TerraPDF &amp; TerraFluent</p>
                 </div>
                 <div>
                     <h4 class="footer-heading">Navigation</h4>
@@ -280,6 +302,8 @@
                         <li><a href="https://terrapdf.com">TerraPDF Website</a></li>
                         <li><a href="https://www.nuget.org/packages/TerraPDF/">TerraPDF on NuGet</a></li>
                         <li><a href="https://github.com/sahebansari/TerraPDF">TerraPDF on GitHub</a></li>
+                        <li><a href="https://terrafluent.dev">TerraFluent Website</a></li>
+                        <li><a href="https://www.nuget.org/packages?q=TerraFluent">TerraFluent on NuGet</a></li>
                     </ul>
                 </div>
                 <div>

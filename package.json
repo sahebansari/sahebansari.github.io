@@ -8,7 +8,8 @@
     "clean": "node -e \"require('fs').rmSync('_site',{recursive:true,force:true})\"",
     "build": "npm run clean && eleventy",
     "watch": "eleventy --watch",
-    "debug": "DEBUG=Eleventy* eleventy"
+    "debug": "DEBUG=Eleventy* eleventy",
+    "og": "node scripts/generate-og.js"
   },
   "keywords": [
     "blog",
@@ -17,6 +18,10 @@
   ],
   "author": "Saheb Ansari",
   "license": "MIT",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "gray-matter": "^4.0.3"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5"
   }

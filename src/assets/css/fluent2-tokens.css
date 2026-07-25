@@ -625,67 +625,6 @@ img {
     }
 }
 
-/* ──────────────────────────────────────────
-   6. HERO SECTIONS
-   ────────────────────────────────────────── */
-
-.hero {
-    padding: var(--space-20) var(--space-4);
-    background: linear-gradient(135deg,
-        color-mix(in srgb, var(--color-primary-500) 8%, transparent)
-        color-mix(in srgb, var(--color-secondary-500) 8%, transparent));
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-title {
-    font-size: var(--font-size-6xl);
-    font-weight: var(--font-weight-extrabold);
-    line-height: var(--line-height-tight);
-    color: var(--color-gray-900);
-    margin-bottom: var(--space-6);
-    letter-spacing: var(--tracking-tight);
-}
-
-[data-theme="dark"] .hero-title {
-    color: var(--color-text-primary);
-}
-
-.hero-subtitle {
-    font-size: var(--font-size-xl);
-    color: var(--color-gray-600);
-    margin-bottom: var(--space-8);
-    line-height: var(--line-height-relaxed);
-}
-
-[data-theme="dark"] .hero-subtitle {
-    color: var(--color-text-secondary);
-}
-
-.hero-actions {
-    display: flex;
-    gap: var(--space-4);
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-@media (max-width: 768px) {
-    .hero {
-        padding: var(--space-16) var(--space-4);
-    }
-
-    .hero-title {
-        font-size: var(--font-size-4xl);
-    }
-
-    .hero-subtitle {
-        font-size: var(--font-size-lg);
-    }
-}
 
 /* ──────────────────────────────────────────
    7. BUTTON COMPONENTS
@@ -924,33 +863,6 @@ img {
     .section {
         padding: var(--space-12) var(--space-6);
     }
-}
-
-.section-header {
-    margin-bottom: var(--space-12);
-    text-align: center;
-}
-
-.section-title {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-900);
-    margin-bottom: var(--space-4);
-}
-
-[data-theme="dark"] .section-title {
-    color: var(--color-text-primary);
-}
-
-.section-description {
-    font-size: var(--font-size-lg);
-    color: var(--color-gray-600);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-[data-theme="dark"] .section-description {
-    color: var(--color-text-secondary);
 }
 
 /* ──────────────────────────────────────────
