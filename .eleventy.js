@@ -1,5 +1,6 @@
 const path = require("path");
 const { generateOgImages } = require("./scripts/generate-og.js");
+const { generateBannerImage } = require("./scripts/generate-banner.js");
 
 module.exports = function(eleventyConfig) {
   // Generate social share images (1200x630 PNG) into the output dir before each
@@ -11,6 +12,11 @@ module.exports = function(eleventyConfig) {
     // and a changed post or generator script invalidates the affected images.
     const { written, skipped } = generateOgImages(outDir, { incremental: true });
     console.log(`[og] ${written} image(s) generated, ${skipped} up-to-date`);
+
+    // Homepage hero banner (TerraFluent suite), same incremental rules.
+    const imgDir = path.resolve(__dirname, outputDir, "assets/images");
+    const banner = generateBannerImage(imgDir, { incremental: true });
+    console.log(`[banner] ${banner.written} image(s) generated, ${banner.skipped} up-to-date`);
   });
 
   // Copy assets to output

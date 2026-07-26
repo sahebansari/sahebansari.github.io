@@ -9,7 +9,8 @@
     "build": "npm run clean && eleventy",
     "watch": "eleventy --watch",
     "debug": "DEBUG=Eleventy* eleventy",
-    "og": "node scripts/generate-og.js"
+    "og": "node scripts/generate-og.js",
+    "banner": "node scripts/generate-banner.js"
   },
   "keywords": [
     "blog",
